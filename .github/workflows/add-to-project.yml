@@ -1,0 +1,44 @@
+name: Add Issues to Ignite Project
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add issue to Ignite project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add issue to Ignite GitHub Project
+        uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/orgs/microsoft/projects/1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  label_issues:
+    name: Apply labels to issues
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Apply labels based on issue content
+        uses: github/issue-labeler@v3.4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          enable-versioned-regex: 0
+          include-title: 1
+          include-body: 1
+
+      - name: Add Ignite label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['ignite-2025']
+            })

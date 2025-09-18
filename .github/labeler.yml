@@ -1,0 +1,61 @@
+# Configuration for the issue labeler GitHub Action
+# This file defines rules for automatically labeling issues based on their title and content
+
+# Documentation related issues
+documentation:
+  - "\\bdocs?\\b"
+  - "\\bdocumentation\\b"
+  - "\\bmkdocs\\b"
+  - "\\breadme\\b"
+
+# Bug reports
+bug:
+  - "\\bbug\\b"
+  - "\\berror\\b"
+  - "\\bissue\\b"
+  - "\\bproblem\\b"
+  - "\\bfail(s|ed|ing)?\\b"
+  - "\\bbrok(e|en)\\b"
+
+# Feature requests
+enhancement:
+  - "\\bfeature\\b"
+  - "\\benhancement\\b"
+  - "\\bimprovement\\b"
+  - "\\brequest\\b"
+  - "\\bwish\\b"
+  - "\\bwould like\\b"
+
+# Questions
+question:
+  - "\\bquestion\\b"
+  - "\\bhow to\\b"
+  - "\\bhelp\\b"
+  - "\\bwhat is\\b"
+  - "\\bwhy\\b"
+
+# Lab related issues  
+lab:
+  - "\\blab\\b"
+  - "\\bexercise\\b"
+  - "\\btutorial\\b"
+  - "\\bworkshop\\b"
+
+# AI and red teaming related
+ai:
+  - "\\bai\\b"
+  - "\\bartificial intelligence\\b"
+  - "\\bmachine learning\\b"
+  - "\\bml\\b"
+
+red-teaming:
+  - "\\bred team(ing)?\\b"
+  - "\\bsecurity\\b"
+  - "\\battack\\b"
+  - "\\bvulnerability\\b"
+  - "\\bpenetration\\b"
+
+azure:
+  - "\\bazure\\b"
+  - "\\bfoundry\\b"
+  - "\\bcloud\\b"
