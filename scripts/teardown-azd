@@ -1,0 +1,103 @@
+#!/bin/bash
+
+# Teardown Azure Developer CLI (azd) Script
+# Clean up script for AI agents lab
+
+set -e  # Exit on any error
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+print_success() {
+    echo -e "${GREEN}✓${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}⚠${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}✗${NC} $1"
+}
+
+print_info() {
+    echo -e "${BLUE}ℹ${NC} $1"
+}
+
+# Function to ask for user confirmation
+confirm() {
+    while true; do
+        read -p "$1 (y/n): " yn
+        case $yn in
+            [Yy]* ) return 0;;
+            [Nn]* ) return 1;;
+            * ) echo "Please answer yes (y) or no (n).";;
+        esac
+    done
+}
+
+# ---------------------
+# Check Prerequisites
+# ---------------------
+
+echo "→ Starting teardown process..."
+
+# Check if azd is installed
+if ! command -v azd >/dev/null 2>&1; then
+    print_error "Azure Developer CLI (azd) is not installed"
+    exit 1
+fi
+
+# Check if .azd directory exists
+if [ ! -d ".azd" ]; then
+    print_warning ".azd directory not found - nothing to clean up"
+    exit 0
+fi
+
+# ---------------------
+# Check for Deployment and Run azd down --purge
+# ---------------------
+
+cd .azd
+
+# Check if there was a deployment by looking for .azure directory
+if [ -d ".azure" ]; then
+    echo "→ Deployment detected - cleaning up Azure resources..."
+    
+    print_info "Running 'azd down --purge' to remove all Azure resources..."
+    print_warning "This will permanently delete all deployed resources!"
+
+    if azd down --purge; then
+        print_success "Azure resources cleaned up successfully"
+    else
+        print_error "Failed to clean up Azure resources"
+        print_warning "You may need to manually clean up resources in the Azure portal"
+    fi
+else
+    print_info "No deployment found (.azure directory not present)"
+    print_success "No Azure resources to clean up"
+fi
+
+cd ..
+
+# ---------------------
+# Confirm Directory Deletion
+# ---------------------
+
+echo "→ Directory detected - starting cleanup"
+print_warning "The .azd directory contains local configuration and state files."
+
+if confirm "Do you want to delete the .azd directory?"; then
+    rm -rf .azd
+    print_success "Deleted .azd directory"
+    echo ""
+    print_success "Teardown complete! All resources and local files have been removed."
+else
+    print_info "Keeping .azd directory with local configuration"
+    echo ""
+    print_success "Teardown complete! Azure resources removed, local files preserved."
+fi
