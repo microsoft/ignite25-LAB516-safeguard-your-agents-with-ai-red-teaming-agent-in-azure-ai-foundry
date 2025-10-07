@@ -64,18 +64,44 @@ fi
 
 cd .azd
 
-# Check if there was a deployment by looking for .azure directory
-if [ -d ".azure" ]; then
-    echo "→ Deployment detected - cleaning up Azure resources..."
-    
-    print_info "Running 'azd down --purge' to remove all Azure resources..."
-    print_warning "This will permanently delete all deployed resources!"
+# Check if there was a deployment by looking for .azure directory AND environment folders with .env files
+deployment_found=false
 
-    if azd down --purge; then
-        print_success "Azure resources cleaned up successfully"
+if [ -d ".azure" ]; then
+    print_info "Found .azure directory, checking for environment configurations..."
+    
+    # Look for environment subfolders with .env files containing resource group definitions
+    for env_dir in .azure/*/; do
+        if [ -d "$env_dir" ]; then
+            env_name=$(basename "$env_dir")
+            env_file="$env_dir/.env"
+            
+            if [ -f "$env_file" ]; then
+                # Check if the .env file contains a resource group definition
+                if grep -q "AZURE_RESOURCE_GROUP" "$env_file" || grep -q "resourceGroup" "$env_file"; then
+                    print_info "Found deployment environment: $env_name with resource group configuration"
+                    deployment_found=true
+                    break
+                fi
+            fi
+        fi
+    done
+    
+    if [ "$deployment_found" = true ]; then
+        echo "→ Deployment detected - cleaning up Azure resources..."
+        
+        print_info "Running 'azd down --purge' to remove all Azure resources..."
+        print_warning "This will permanently delete all deployed resources!"
+
+        if azd down --purge; then
+            print_success "Azure resources cleaned up successfully"
+        else
+            print_error "Failed to clean up Azure resources"
+            print_warning "You may need to manually clean up resources in the Azure portal"
+        fi
     else
-        print_error "Failed to clean up Azure resources"
-        print_warning "You may need to manually clean up resources in the Azure portal"
+        print_info "No active deployment found (no environment with resource group configuration)"
+        print_success "No Azure resources to clean up"
     fi
 else
     print_info "No deployment found (.azure directory not present)"
