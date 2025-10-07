@@ -12,6 +12,7 @@ Welcome to the AI Red Teaming Workshop! We'll use an automated setup approach us
 *Source: Microsoft Learn - How AI Red Teaming Works*
 
 Our setup will create:
+
 - ✅ **Azure AI Foundry Project** - For cloud-based red teaming
 - ✅ **OpenAI Model Deployments** - Target models to test
 - ✅ **Storage Account** - For evaluation results
@@ -46,7 +47,7 @@ AZURE_OPENAI_KEY="will-be-set-by-setup"
 
 > 💡 **Pro Tip**: Use `swedencentral` as your location - it's optimized for AI Red Teaming Agent availability.
 
-## Step 2: Automated Infrastructure Setup
+## Step 2: Automated Setup
 
 Now let's use our pre-built scripts to set up everything automatically:
 
@@ -58,11 +59,12 @@ Now let's use our pre-built scripts to set up everything automatically:
 ```
 
 **What this does:**
+
 - ✅ Logs you into Azure CLI
 - ✅ Sets default subscription
 - ✅ Validates permissions
 
-### 2.2 Initialize the AI Agents Template
+### 2.2 Initialize AZD Template
 
 ```bash
 # Run the template setup script  
@@ -93,7 +95,7 @@ graph TD
 
 Navigate to the setup directory and deploy:
 
-```bash
+```bash title="" linenums="0"
 # Navigate to infrastructure directory
 cd .infra-setup
 
@@ -111,7 +113,7 @@ azd up
 
 After successful deployment, **azd** will output important information. Update your `.env` file with these values:
 
-```bash
+```bash title="" linenums="0"
 # Navigate back to the workshop root
 cd ..
 
@@ -119,7 +121,7 @@ cd ..
 ```
 
 **Update these values in your `.env` file:**
-```bash
+```bash title="" linenums="0"
 # Update with actual deployed values
 AZURE_PROJECT_NAME="your-deployed-project-name"
 AZURE_OPENAI_ENDPOINT="https://your-deployed-openai.openai.azure.com/"

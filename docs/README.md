@@ -8,6 +8,11 @@ Welcome to the hands-on workshop on **AI Red Teaming using Azure AI Foundry**. T
 
 ---
 
+
+## Before You Begin
+
+This workshop is setup for both instructor-led (in venue) and self-guided (at home) sessions. Pick the tab that describes your current context. It will automatically be enforced throughout the site.
+
 ## Prerequisites
 
 Before starting this workshop, ensure you have:
@@ -17,7 +22,6 @@ Before starting this workshop, ensure you have:
 - **Azure CLI** installed and configured
 - **Basic familiarity** with Python development and Azure services
 - **Access** to Azure AI Foundry (or willingness to create a free trial)
-
 
 ## Learning Objectives
 

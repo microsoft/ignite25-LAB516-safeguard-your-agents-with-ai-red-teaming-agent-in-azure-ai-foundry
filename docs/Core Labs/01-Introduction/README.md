@@ -25,18 +25,21 @@ After completing this module, you will understand:
 ## Key Concepts Covered
 
 ### Core Terminology
+
 - **AI Red Teaming**: Proactive testing for AI safety and security risks
 - **Attack Success Rate (ASR)**: Key metric for measuring AI system vulnerabilities
 - **PyRIT**: Microsoft's Python Risk Identification Tool
 - **Azure AI Foundry**: Microsoft's platform for AI development and safety
 
 ### Risk Categories
+
 - Violence and harmful content
 - Sexual content
 - Hateful and unfair content
 - Self-harm related content
 
 ### Attack Strategies
+
 - Easy complexity attacks (encoding, character manipulation)
 - Moderate complexity attacks (using AI to generate attacks)
 - Difficult complexity attacks (complex multi-step approaches)
@@ -44,6 +47,7 @@ After completing this module, you will understand:
 ## Prerequisites Check
 
 Before proceeding, ensure you have:
+
 - ✅ Basic understanding of AI/ML concepts
 - ✅ Familiarity with Python programming
 - ✅ Access to an Azure subscription

@@ -45,16 +45,19 @@ AI red teaming helps organizations:
 Microsoft's AI Red Teaming Agent leverages:
 
 ### 1. PyRIT (Tool)
+
 - Open-source framework for AI red teaming
 - Automated attack generation and execution
 - Extensible for custom scenarios
 
 ### 2. Azure AI Foundry (Evaluations)
+
 - Built-in evaluators for content risks
 - Standardized risk assessment metrics
 - Integration with development workflows
 
 ### 3. Three-Component System
+
 1. **Automated Scans**: Generate and execute adversarial prompts
 2. **Evaluation**: Score attack-response pairs for risk assessment
 3. **Reporting**: Generate scorecards and compliance reports
@@ -80,31 +83,37 @@ AI: "To rob a bank, you would need to..." (potentially harmful response)
 AI red teaming should be implemented during:
 
 ### Design Phase
+
 - **Model Selection**: Compare safety posture of different foundation models
 - **Architecture Planning**: Design safety controls into system architecture
 
 ### Development Phase
+
 - **Model Updates**: Test safety impact of model upgrades
 - **Fine-tuning**: Validate that custom training doesn't introduce risks
 - **Feature Development**: Test new capabilities for safety implications
 
 ### Pre-deployment Phase
+
 - **Final Validation**: Comprehensive safety assessment before production
 - **Compliance Check**: Ensure regulatory requirements are met
 
 ## Key Benefits
 
 ### For Developers
+
 - **Automated Testing**: Reduce manual effort in safety validation
 - **Early Detection**: Find issues before they reach production
 - **Comprehensive Coverage**: Test multiple risk scenarios systematically
 
 ### For Organizations
+
 - **Risk Mitigation**: Reduce liability and reputational risk
 - **Compliance**: Meet regulatory and industry standards
 - **Scalability**: Test multiple models and applications efficiently
 
 ### For Users
+
 - **Safety**: Reduced exposure to harmful or inappropriate content
 - **Trust**: Increased confidence in AI system reliability
 - **Fairness**: More equitable AI system behavior
@@ -114,6 +123,7 @@ AI red teaming should be implemented during:
 > **Important**: Automated red teaming tools are most effective when combined with human expertise. The AI Red Teaming Agent is designed to accelerate and scale human-led safety assessment, not replace it entirely.
 
 ### Recommended Workflow:
+
 1. **Automated Scanning**: Use AI Red Teaming Agent for broad coverage
 2. **Human Analysis**: Expert review of flagged issues
 3. **Manual Testing**: Targeted testing by security professionals
@@ -126,9 +136,9 @@ AI red teaming should be implemented during:
 **Question**: How does AI red teaming differ from traditional cybersecurity red teaming?
 
 <details>
-<summary>Click to see answer</summary>
+<summary>Click to see **Answer**</summary>
 
-**Answer**: While traditional red teaming focuses on exploiting technical vulnerabilities in systems and networks, AI red teaming specifically targets the unique risks of generative AI systems, including content safety, bias, prompt injection, and adversarial manipulation of AI behavior.
+While traditional red teaming focuses on exploiting technical vulnerabilities in systems and networks, AI red teaming specifically targets the unique risks of generative AI systems, including content safety, bias, prompt injection, and adversarial manipulation of AI behavior.
 
 </details>
 
