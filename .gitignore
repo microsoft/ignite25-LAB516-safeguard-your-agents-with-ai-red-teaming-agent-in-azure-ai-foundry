@@ -12,7 +12,7 @@
 *.env
 
 # Azure Developer CLI directory
-#.infra-setup/
+.infra-setup/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
