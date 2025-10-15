@@ -1,8 +1,20 @@
+# ==============================================================================
 # Documentation
+# ==============================================================================
 mkdocs-material
 
-# Install source dependencies (only after .infra-setup exists)
-# -r .infra-setup/requirements-dev.txt
+# ==============================================================================
+# General Python Dependencies
+# ==============================================================================
+python-dotenv
 
-# Install local package in editable mode (only after .infra-setup exists)
-# -e .infra-setup/src
+# ==============================================================================
+# Azure SDK Dependencies
+# ==============================================================================
+# Identity and authentication
+azure-identity
+
+# AI and evaluation
+azure-ai-evaluation[redteam]
+azure-ai-projects
+azure-ai-agents
