@@ -32,38 +32,27 @@ fi
 echo "✓ Logged into Azure CLI"
 echo ""
 
-# Step 3: Select subscription
-echo "Available Subscriptions:"
-echo ""
-SUBS=($(az account list --query "[].id" -o tsv))
-SUB_NAMES=($(az account list --query "[].name" -o tsv))
-
-for i in "${!SUBS[@]}"; do
-    printf "%2d) %s\n" $((i+1)) "${SUB_NAMES[$i]}"
-done
+# Step 3: Use default subscription
+echo "Getting default subscription..."
+SELECTED_SUB=$(az account show --query "id" -o tsv)
+SELECTED_SUB_NAME=$(az account show --query "name" -o tsv)
+echo "✓ Using subscription: $SELECTED_SUB_NAME"
 echo ""
 
-read -p "Select subscription (enter number): " SUB_CHOICE
-SELECTED_SUB="${SUBS[$((SUB_CHOICE-1))]}"
-SELECTED_SUB_NAME="${SUB_NAMES[$((SUB_CHOICE-1))]}"
+# Step 4: Ask for resource group name
+read -p "Enter resource group name: " SELECTED_RG
 
-az account set --subscription "$SELECTED_SUB"
-echo "✓ Selected: $SELECTED_SUB_NAME"
-echo ""
+# Verify the resource group exists
+if ! az group show --name "$SELECTED_RG" &> /dev/null; then
+    echo "❌ Error: Resource group '$SELECTED_RG' not found in subscription '$SELECTED_SUB_NAME'"
+    echo ""
+    echo "Available Resource Groups:"
+    az group list --query "[].name" -o tsv | nl
+    echo ""
+    exit 1
+fi
 
-# Step 4: Select resource group
-echo "Available Resource Groups:"
-echo ""
-RGS=($(az group list --query "[].name" -o tsv))
-
-for i in "${!RGS[@]}"; do
-    printf "%2d) %s\n" $((i+1)) "${RGS[$i]}"
-done
-echo ""
-
-read -p "Select resource group (enter number): " RG_CHOICE
-SELECTED_RG="${RGS[$((RG_CHOICE-1))]}"
-echo "✓ Selected: $SELECTED_RG"
+echo "✓ Found resource group: $SELECTED_RG"
 echo ""
 
 # Step 5: Get location from resource group
@@ -268,12 +257,20 @@ SELECTED_AGENT="${SELECTED_AGENT:-}"
 if [ -n "$SELECTED_RESOURCE" ]; then
     echo "Retrieving Azure OpenAI endpoint and key for Lab 2..."
     
-    # Get the endpoint
-    AZURE_OPENAI_ENDPOINT=$(az cognitiveservices account show \
+    # Get the cognitive services endpoint first
+    COGNITIVE_ENDPOINT=$(az cognitiveservices account show \
         --name "$SELECTED_RESOURCE" \
         --resource-group "$SELECTED_RG" \
         --query "properties.endpoint" \
         -o tsv 2>/dev/null)
+    
+    # Convert to OpenAI format: https://<resource-name>.openai.azure.com/
+    if [ -n "$COGNITIVE_ENDPOINT" ]; then
+        # Extract the resource name from the endpoint or use SELECTED_RESOURCE
+        AZURE_OPENAI_ENDPOINT="https://${SELECTED_RESOURCE}.openai.azure.com/"
+    else
+        AZURE_OPENAI_ENDPOINT=""
+    fi
     
     # Get the API key
     AZURE_OPENAI_API_KEY=$(az cognitiveservices account keys list \
