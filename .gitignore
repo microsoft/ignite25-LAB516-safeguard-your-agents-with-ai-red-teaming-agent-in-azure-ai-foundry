@@ -438,3 +438,6 @@ TMP/
 
 # Cloned ForBeginners repository (not committed)
 infra/ForBeginners
+labs/2-scan-model/2C-Application-Target.json
+labs/2-scan-model/2D-CustomPrompts-Target.json
+labs/2-scan-model/red_team_output.json

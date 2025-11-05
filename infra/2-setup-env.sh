@@ -279,16 +279,31 @@ if [ -n "$SELECTED_RESOURCE" ]; then
         --query "key1" \
         -o tsv 2>/dev/null)
     
+    # Construct the target endpoint with deployment name
+    if [ -n "$COGNITIVE_ENDPOINT" ] && [ -n "$SELECTED_DEPLOYMENT" ]; then
+        # Remove trailing slash from cognitive endpoint if present
+        COGNITIVE_ENDPOINT_CLEAN="${COGNITIVE_ENDPOINT%/}"
+        # Construct the full target URI
+        AZURE_OPENAI_TARGET_ENDPOINT="${COGNITIVE_ENDPOINT_CLEAN}/openai/deployments/${SELECTED_DEPLOYMENT}/chat/completions?api-version=2025-01-01-preview"
+    else
+        AZURE_OPENAI_TARGET_ENDPOINT=""
+    fi
+    
     if [ -n "$AZURE_OPENAI_ENDPOINT" ] && [ -n "$AZURE_OPENAI_API_KEY" ]; then
         echo "✓ Retrieved Azure OpenAI credentials"
+        if [ -n "$AZURE_OPENAI_TARGET_ENDPOINT" ]; then
+            echo "✓ Constructed target endpoint"
+        fi
     else
         echo "⚠ Warning: Could not retrieve Azure OpenAI credentials"
         AZURE_OPENAI_ENDPOINT=""
         AZURE_OPENAI_API_KEY=""
+        AZURE_OPENAI_TARGET_ENDPOINT=""
     fi
 else
     AZURE_OPENAI_ENDPOINT=""
     AZURE_OPENAI_API_KEY=""
+    AZURE_OPENAI_TARGET_ENDPOINT=""
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -304,6 +319,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' "s|^AZURE_OPENAI_API_KEY=.*|AZURE_OPENAI_API_KEY=$AZURE_OPENAI_API_KEY|" "$ENV_FILE"
     sed -i '' "s|^AZURE_OPENAI_DEPLOYMENT=.*|AZURE_OPENAI_DEPLOYMENT=$SELECTED_DEPLOYMENT|" "$ENV_FILE"
     sed -i '' "s|^AZURE_OPENAI_ENDPOINT=.*|AZURE_OPENAI_ENDPOINT=$AZURE_OPENAI_ENDPOINT|" "$ENV_FILE"
+    sed -i '' "s|^AZURE_OPENAI_TARGET_ENDPOINT=.*|AZURE_OPENAI_TARGET_ENDPOINT=$AZURE_OPENAI_TARGET_ENDPOINT|" "$ENV_FILE"
 else
     sed -i "s|^AZURE_SUBSCRIPTION_ID=.*|AZURE_SUBSCRIPTION_ID=$SELECTED_SUB|" "$ENV_FILE"
     sed -i "s|^AZURE_RESOURCE_GROUP=.*|AZURE_RESOURCE_GROUP=$SELECTED_RG|" "$ENV_FILE"
@@ -317,6 +333,7 @@ else
     sed -i "s|^AZURE_OPENAI_API_KEY=.*|AZURE_OPENAI_API_KEY=$AZURE_OPENAI_API_KEY|" "$ENV_FILE"
     sed -i "s|^AZURE_OPENAI_DEPLOYMENT=.*|AZURE_OPENAI_DEPLOYMENT=$SELECTED_DEPLOYMENT|" "$ENV_FILE"
     sed -i "s|^AZURE_OPENAI_ENDPOINT=.*|AZURE_OPENAI_ENDPOINT=$AZURE_OPENAI_ENDPOINT|" "$ENV_FILE"
+    sed -i "s|^AZURE_OPENAI_TARGET_ENDPOINT=.*|AZURE_OPENAI_TARGET_ENDPOINT=$AZURE_OPENAI_TARGET_ENDPOINT|" "$ENV_FILE"
 fi
 
 echo "✓ Configuration saved"
@@ -335,6 +352,7 @@ echo ""
 echo "Lab 2 - Azure OpenAI Configuration:"
 echo "  OpenAI Endpoint: $AZURE_OPENAI_ENDPOINT"
 echo "  OpenAI Deployment: $SELECTED_DEPLOYMENT"
+echo "  OpenAI Target Endpoint: $AZURE_OPENAI_TARGET_ENDPOINT"
 echo "  OpenAI API Key: ${AZURE_OPENAI_API_KEY:0:8}..." # Show only first 8 chars
 echo "================================================"
 echo ""
