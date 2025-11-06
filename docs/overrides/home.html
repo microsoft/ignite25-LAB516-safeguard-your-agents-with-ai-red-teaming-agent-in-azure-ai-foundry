@@ -1,0 +1,99 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+{{ super() }}
+<style>
+  .md-sidebar--primary {
+    display: none;
+  }
+  .md-sidebar--secondary {
+    display: none !important;
+  }
+  .md-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .md-main__inner {
+    margin: 0;
+    max-width: 100%;
+  }
+  .md-content__inner {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 2rem;
+  }
+  
+  /* Container for hero and labs with responsive max-width */
+  .hero-banner,
+  .labs-grid {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .labs-grid {
+    margin-bottom: 3rem;
+  }
+  
+  /* Responsive padding */
+  @media screen and (max-width: 768px) {
+    .md-content__inner {
+      padding: 1rem;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block site_nav %}
+  <!-- Hide navigation sidebar on home page -->
+{% endblock %}
+
+{% block toc %}
+  <!-- Hide TOC sidebar on home page -->
+{% endblock %}
+
+{% block content %}
+<div class="hero-banner">
+  <h3>Learning Objectives</h3>
+  <ul class="objectives-list">
+    <li>Understand what the AI Red Teaming Agent does and why it matters</li>
+    <li>Learn about risk categories and attack strategies for AI red teaming</li>
+    <li>Run AI Red Teaming Agent scans locally using the Azure AI Evaluation SDK</li>
+    <li>Execute cloud-based scans using the Azure AI Foundry SDK</li>
+    <li>View and analyze scan results both locally and in Azure AI Foundry Portal</li>
+    <li>Create and run custom scans using application-specific callbacks and prompts</li>
+  </ul>
+</div>
+
+<div class="labs-grid">
+  <a href="getting-started/setup/" class="lab-card">
+    <div class="lab-number">00</div>
+    <h3>Environment Setup</h3>
+    <p>Configure Azure AI Foundry and local development environment</p>
+  </a>
+  
+  <a href="labs/01-scan-agent/" class="lab-card">
+    <div class="lab-number">01</div>
+    <h3>Scan Azure AI Agent</h3>
+    <p>Run your first red team scan against an Azure AI agent</p>
+  </a>
+  
+  <a href="labs/02-scan-model/" class="lab-card">
+    <div class="lab-number">02</div>
+    <h3>Scan Models & Applications</h3>
+    <p>Test callbacks, models, and complete applications with custom prompts</p>
+  </a>
+  
+  <a href="labs/03-scan-cloud/" class="lab-card">
+    <div class="lab-number">03</div>
+    <h3>Cloud-Based Red Teaming</h3>
+    <p>Scale security testing with cloud-based scans in Azure AI Foundry</p>
+  </a>
+  
+  <a href="more-labs/04-scan-advanced/" class="bonus-lab-card">
+    <div class="bonus-lab-number">04</div>
+    <h3>Complex Scans</h3>
+    <p>Comprehensive testing with multi-complexity attack strategy groups</p>
+  </a>
+</div>
+{% endblock %}
