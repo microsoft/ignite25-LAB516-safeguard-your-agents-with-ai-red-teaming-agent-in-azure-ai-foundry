@@ -7,6 +7,7 @@ mkdocs-material
 # General Python Dependencies
 # ==============================================================================
 python-dotenv
+ipykernel
 
 # ==============================================================================
 # Azure SDK Dependencies
@@ -15,6 +16,6 @@ python-dotenv
 azure-identity
 
 # AI and evaluation
-azure-ai-evaluation[redteam]
+azure-ai-evaluation[redteam]==1.12.0
 azure-ai-projects>=1.1.0b3  # Required for cloud-based red teaming (Lab 03)
 azure-ai-agents

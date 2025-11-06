@@ -1,0 +1,53 @@
+/* ============================================
+   CUSTOM COPILOT ADMONITIONS
+   ============================================
+   
+   Custom styles for task and note admonitions 
+   with purple-pink branding color (#7C4ACD)
+   
+   Usage in Markdown:
+   
+   !!! task "Your Task"
+       This is a custom task admonition.
+   
+   !!! note "Important Note"
+       This is a custom note admonition.
+   
+   ??? task "Collapsible Task"
+       Closed by default
+   
+   ???+ note "Expanded Note"  
+       Open by default
+   ============================================ */
+
+/* Task admonition styling */
+.md-typeset .admonition.task,
+.md-typeset details.task {
+  border-color: #7C4ACD;
+}
+
+.md-typeset .task > .admonition-title,
+.md-typeset .task > summary {
+  background-color: rgba(124, 74, 205, 0.1);
+}
+
+.md-typeset .task > .admonition-title::before,
+.md-typeset .task > summary::before {
+  background-color: #7C4ACD;
+}
+
+/* Note admonition styling */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #7C4ACD;
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background-color: rgba(124, 74, 205, 0.1);
+}
+
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before {
+  background-color: #7C4ACD;
+}
