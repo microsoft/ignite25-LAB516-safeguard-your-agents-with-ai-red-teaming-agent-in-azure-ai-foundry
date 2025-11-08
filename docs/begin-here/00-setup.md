@@ -221,10 +221,13 @@ This should display your current Azure subscription details.
 Open the first notebook to verify everything works:
 
 ```bash
-# Open Jupyter or VS Code
+Open the notebook in Jupyter or VS Code:
+
+```bash
 jupyter notebook labs/1-scan-agent/1-scan-agent.ipynb
 # OR
 code labs/1-scan-agent/1-scan-agent.ipynb
+```
 ```
 
 Run the first few cells to test:
@@ -312,8 +315,8 @@ cd infra
 
 Now you can:
 
-1. **[Start Lab 1: Scan Azure AI Agent](01-scan-agent.md)** - Run your first red team scan
-2. **[Return to Labs Overview](index.md)** - See all available labs
+1. **[Start Lab 1: Scan Azure AI Agent](../core-labs/01-scan-agent.md)** - Run your first red team scan
+2. **[Return to Core Labs Overview](../core-labs/index.md)** - See all available labs
 3. **[Join the Community](https://discord.com/invite/ByRwuEEgH4)** - Connect with other learners
 
 ## Additional Resources
@@ -325,5 +328,4 @@ Now you can:
 
 ---
 
-[Continue to Lab 1 →](01-scan-agent.md){ .md-button .md-button--primary }
-[Back to Labs](index.md){ .md-button }
+[NEXT LAB](../core-labs/01-scan-agent.md){ .md-button .md-button--primary }

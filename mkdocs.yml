@@ -40,6 +40,7 @@ theme:
   
   icon:
     repo: fontawesome/brands/github
+    logo: material/shield-check
   
   font:
     text: Roboto
@@ -89,14 +90,14 @@ plugins:
 
 nav:
   - Home: index.md
-  - Getting Started:
-    - Environment Setup: getting-started/setup.md
-  - Labs:
-    - Overview: labs/index.md
-    - Lab 0 - Environment Setup: labs/00-setup.md
-    - Lab 1 - Scan Your Agent: labs/01-scan-agent.md
-    - Lab 2 - Scan Your Models: labs/02-scan-model.md
-    - Lab 3 - Scan in the Cloud: labs/03-scan-cloud.md
+  - Begin Here:
+    - Overview: begin-here/index.md
+    - Lab 0 - Validate Setup: begin-here/00-setup.md
+  - Core Labs:
+    - Overview: core-labs/index.md
+    - Lab 1 - Scan Your Agent: core-labs/01-scan-agent.md
+    - Lab 2 - Scan Your Models: core-labs/02-scan-model.md
+    - Lab 3 - Scan in the Cloud: core-labs/03-scan-cloud.md
   - More Labs:
     - Overview: more-labs/index.md
     - Lab 4 - Complex Scans: more-labs/04-scan-advanced.md

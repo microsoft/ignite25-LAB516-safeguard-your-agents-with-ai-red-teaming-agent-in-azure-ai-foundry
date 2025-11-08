@@ -11,16 +11,16 @@ By completing this lab, you will learn how to:
 - ✅ Access comprehensive results and reports from cloud-based scans
 - ✅ Decide when to use cloud vs. local scanning for your workflows
 
-## Instructions
+!!! lab "Instructions"
 
-1. **Open the notebook**: Navigate to `labs/3-scan-cloud/` and open [`3-scan-cloud.ipynb`](../../labs/3-scan-cloud/3-scan-cloud.ipynb)
-2. **Verify package version**: Check you have `azure-ai-projects==1.1.0b3` or later installed
-3. **Configure cloud scan**: Set up the RedTeam instance with your Azure AI project
-4. **Submit the scan**: Launch the scan in Azure AI Foundry (runs asynchronously in the cloud)
-5. **Monitor in portal**: Navigate to Azure AI Foundry Portal → Evaluation → AI red teaming
-6. **Analyze results**: Review the comprehensive reports and data visualizations
+    1. **Open the notebook**: Navigate to `labs/3-scan-cloud/` and open `3-scan-cloud.ipynb`
+    2. **Verify package version**: Check you have `azure-ai-projects==1.1.0b3` or later installed
+    3. **Configure cloud scan**: Set up the RedTeam instance with your Azure AI project
+    4. **Submit the scan**: Launch the scan in Azure AI Foundry (runs asynchronously in the cloud)
+    5. **Monitor in portal**: Navigate to Azure AI Foundry Portal → Evaluation → AI red teaming
+    6. **Analyze results**: Review the comprehensive reports and data visualizations
 
-**Expected Time**: 25-35 minutes (scan runs in background)
+    **Expected Time**: 25-35 minutes (scan runs in background)
 
 ## Ask Copilot
 
@@ -37,4 +37,4 @@ Use these prompts with GitHub Copilot Chat to deepen your understanding:
 
 ---
 
-**Previous Lab**: [← Lab 2: Scan Models & Applications](02-scan-model.md) | **Next Lab**: [More Labs: Advanced Attack Strategies →](../more-labs/04-scan-advanced.md)
+[PREV LAB](02-scan-model.md){ .md-button } [NEXT LAB](../more-labs/04-scan-advanced.md){ .md-button .md-button--primary }

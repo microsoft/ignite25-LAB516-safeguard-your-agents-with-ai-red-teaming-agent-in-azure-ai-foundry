@@ -13,7 +13,7 @@ By completing this lab, you will learn how to:
 
 ## Instructions
 
-1. **Open the notebook**: Navigate to `labs/4-scan-more/` and open [`4-scan-deepseek.ipynb`](../../labs/4-scan-more/4-scan-deepseek.ipynb)
+1. **Open the notebook**: Navigate to `labs/4-scan-more/` and open `4-scan-deepseek.ipynb`
 2. **Review attack complexity**: Understand EASY (Base64, Flip, Morse), MODERATE (Tense), DIFFICULT (Composition)
 3. **Configure comprehensive scan**: Set up scan with all risk categories and strategy groups
 4. **Run the scan**: Execute the comprehensive scan (this takes 20-40 minutes due to scope)
@@ -37,4 +37,4 @@ Use these prompts with GitHub Copilot Chat to deepen your understanding:
 
 ---
 
-**Previous Lab**: [← Lab 3: Cloud-Based Red Teaming](../labs/03-scan-cloud.md) | **Congratulations!** You've completed all labs! 🎉
+**Previous Lab**: [← Lab 3: Cloud-Based Red Teaming](../core-labs/03-scan-cloud.md) | **Congratulations!** You've completed all labs! 🎉

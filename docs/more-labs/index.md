@@ -42,8 +42,8 @@ Conduct comprehensive testing with multi-complexity attack strategy groups acros
 
 If you encounter issues or have questions:
 
-- Review the [Getting Started](../getting-started/setup.md) guide
-- Check the main [Labs Overview](../labs/index.md)
+- Review the [Getting Started](../begin-here/index.md) guide
+- Check the main [Core Labs Overview](../core-labs/index.md)
 - Refer to [Azure AI documentation](https://learn.microsoft.com/azure/ai-studio/)
 
 ## Additional Topics
@@ -57,4 +57,4 @@ Future bonus labs may include:
 
 ---
 
-[Back to Core Labs](../labs/index.md){ .md-button }
+[Back to Core Labs](../core-labs/index.md){ .md-button }

@@ -4,20 +4,15 @@ Welcome to the AI Red Teaming labs! These progressive exercises teach you how to
 
 ## Before You Begin
 
-!!! warning "Prerequisites"
-    Complete the [Environment Setup](../getting-started/setup.md) before starting any lab.
+!!! info "Prerequisites"
+    Complete the [Environment Setup](../begin-here/index.md) before starting any lab.
+
 
 ## Lab Progression
 
 Work through these labs sequentially to build your red teaming skills from foundational concepts to advanced techniques.
 
 ## Lab Catalog
-
-### Setup & Foundations
-
-| Lab | Title | Duration | Difficulty | Description |
-|-----|-------|----------|------------|-------------|
-| [Lab 0](00-setup.md) | **Environment Setup** | 15-20 min | 🟢 Beginner | Configure Azure AI Foundry and local development environment |
 
 ### Core Red Teaming Labs
 
@@ -215,7 +210,7 @@ The primary metric measuring the **percentage of attacks that successfully elici
 ---
 
 !!! success "Ready to Start?"
-    Begin with [Lab 0: Environment Setup](00-setup.md) or jump directly to [Lab 1: Scan Azure AI Agent](01-scan-agent.md) if your environment is already configured.
+    Complete the [Begin Here](../begin-here/index.md) setup first, then jump to [Lab 1: Scan Azure AI Agent](01-scan-agent.md) to begin learning!
 
-[Start Lab 0 →](00-setup.md){ .md-button .md-button--primary }
-[Back to Home](../){ .md-button }
+[Start Lab 1 →](01-scan-agent.md){ .md-button .md-button--primary }
+[Back to Home](../index.md){ .md-button }

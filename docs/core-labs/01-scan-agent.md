@@ -11,16 +11,16 @@ By completing this lab, you will learn how to:
 - ✅ Run an automated red team scan with risk categories and attack strategies
 - ✅ Analyze scan results and understand Attack Success Rate (ASR) metrics
 
-## Instructions
+!!! lab "Instructions"
 
-1. **Open the notebook**: Navigate to `labs/1-scan-agent/` and open [`1-scan-agent.ipynb`](../../labs/1-scan-agent/1-scan-agent.ipynb)
-2. **Run cells sequentially**: Execute each cell from top to bottom by clicking the ▶️ button or pressing `Shift+Enter`
-3. **Observe agent retrieval**: Watch how the AIProjectClient connects to Azure and retrieves your agent
-4. **Test the callback**: See how the agent_callback function enables red team testing
-5. **Run the scan**: Execute the red team scan and wait for results (3-5 minutes)
-6. **Analyze results**: Review the Attack Success Rate and scan outputs in both local files and Azure portal
+    1. **Open the notebook**: Navigate to `labs/1-scan-agent/` and open `1-scan-agent.ipynb`
+    2. **Run cells sequentially**: Execute each cell from top to bottom by clicking the ▶️ button or pressing `Shift+Enter`
+    3. **Observe agent retrieval**: Watch how the AIProjectClient connects to Azure and retrieves your agent
+    4. **Test the callback**: See how the agent_callback function enables red team testing
+    5. **Run the scan**: Execute the red team scan and wait for results (3-5 minutes)
+    6. **Analyze results**: Review the Attack Success Rate and scan outputs in both local files and Azure portal
 
-**Expected Time**: 20-30 minutes
+    **Expected Time**: 20-30 minutes
 
 ## Ask Copilot
 
@@ -31,13 +31,19 @@ Use these prompts with GitHub Copilot Chat to deepen your understanding:
     **Ask GitHub Copilot:**
     
     - "What is AI red teaming and why is it important? Explain how the AI Red Teaming Agent helps identify safety vulnerabilities in generative AI systems."
+
+!!! prompt "**ASK COPILOT**"
     - "Explain what Attack Success Rate (ASR) means in AI red teaming. How is it calculated, and what does a high or low ASR indicate about an AI system's safety?"
+
+!!! prompt "**ASK COPILOT**"
     - "What are the four supported risk categories in AI red teaming (Violence, Sexual, Hate/Unfairness, Self-Harm)? Provide examples of prompts for each category."
+
+!!! prompt "**ASK COPILOT**"
     - "Explain the different attack strategies like Flip, Base64, Jailbreak, and Leetspeak. How do these strategies help test AI safety by obfuscating harmful prompts?"
 
 ---
 
-**Previous Lab**: [← Lab 0: Environment Setup](00-setup.md) | **Next Lab**: [Lab 2: Scan Models & Applications →](02-scan-model.md)
+[PREV LAB](../begin-here/00-setup.md){ .md-button } [NEXT LAB](02-scan-model.md){ .md-button .md-button--primary }
 
 By the end of this lab, you will:
 
@@ -536,7 +542,7 @@ Congratulations! You've completed your first AI Red Teaming scan! 🎉
 
 1. **[Lab 2: Scan Models & Applications](02-scan-model.md)** - Test different target types
 2. **[Lab 3: Cloud-Based Red Teaming](03-scan-cloud.md)** - Scale with cloud scans
-3. **[Lab 4: Advanced Attack Strategies](04-scan-advanced.md)** - Comprehensive testing
+3. **[Lab 4: Advanced Attack Strategies](../more-labs/04-scan-advanced.md)** - Comprehensive testing
 
 ## Additional Resources
 

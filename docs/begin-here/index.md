@@ -1,4 +1,4 @@
-# Environment Setup
+# Welcome
 
 This guide will help you set up your Azure AI Foundry environment and local development tools for the AI Red Teaming labs.
 
@@ -226,8 +226,8 @@ az account set --subscription "<your-subscription-id>"
 
 Once your environment is set up:
 
-1. **[Return to Labs Overview](../labs/)** - See all available labs
-2. **[Start Lab 1](../labs/01-scan-agent.md)** - Run your first red team scan
+1. **[Return to Labs Overview](../core-labs/index.md)** - See all available labs
+2. **[Start Lab 1](../core-labs/01-scan-agent.md)** - Run your first red team scan
 3. **[Join the Community](https://discord.com/invite/ByRwuEEgH4)** - Connect with other learners
 
 ## Additional Resources
@@ -240,4 +240,4 @@ Once your environment is set up:
 ---
 
 !!! success "Setup Complete!"
-    Your environment is ready. Proceed to [Lab 1: Scan Azure AI Agent](../labs/01-scan-agent.md) to begin learning!
+    Your environment is ready. Proceed to [Lab 1: Scan Azure AI Agent](../core-labs/01-scan-agent.md) to begin learning!

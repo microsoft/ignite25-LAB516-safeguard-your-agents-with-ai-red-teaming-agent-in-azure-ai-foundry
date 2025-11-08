@@ -44,13 +44,10 @@ The AI Red Teaming Agent provides powerful capabilities for securing AI systems:
     python-dotenv
     ```
 
-### Getting Started
+### How to Use This Lab
 
-Follow these steps to get up and running:
-
-1. **[Setup Environment](getting-started/setup.md)** - Configure Azure and local tools
-2. **[Explore Labs](labs/)** - Work through hands-on exercises
-3. **[Join the Community](#resources)** - Connect with other learners
+1. **[Core Labs](core-labs/index.md)** - Work through hands-on exercises
+2. **[More Labs](more-labs/index.md)** - Try advanced red teaming techniques
 
 ### Resources
 
@@ -62,4 +59,4 @@ Follow these steps to get up and running:
 
 ---
 
-Ready to build safer AI? [Get started now →](getting-started/setup.md){ .md-button .md-button--primary }
+Ready to build safer AI? [Get started now →](begin-here/index.md){ .md-button .md-button--primary }
