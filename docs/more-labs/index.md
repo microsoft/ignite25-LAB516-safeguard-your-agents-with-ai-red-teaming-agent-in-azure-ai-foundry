@@ -17,22 +17,22 @@ Before starting these bonus labs, you should have:
 
 ---
 
-## Lab 4: Complex Scans
+## Lab 4: Red Team the Zava Chatbot
 
-**Duration:** 40-60 minutes | **Difficulty:** 🟠 Advanced
+**Duration:** 45-60 minutes | **Difficulty:** 🟠 Advanced
 
-Conduct comprehensive testing with multi-complexity attack strategy groups across all risk categories.
+Test a production-ready AI shopping assistant with real product data for safety vulnerabilities using baseline and advanced attack strategies.
 
 **What You'll Learn:**
 
-- Apply EASY attack strategies (Base64, Flip, Morse)
-- Apply MODERATE attacks (Tense conversion)
-- Apply DIFFICULT attacks (composition strategies)
-- Test all risk categories simultaneously
-- Configure multi-objective scans
-- Interpret large-scale scan results
+- Create Azure AI Agents with file search capabilities
+- Run baseline red teaming scans with direct attacks
+- Apply advanced attack strategies (Base64, ROT13, Leetspeak, Composition)
+- Analyze Attack Success Rate (ASR) by risk category
+- Interpret results and identify vulnerabilities
+- Apply production AI safety best practices
 
-**Scan Scope:** 100+ attack-response pairs across 4 risk categories
+**Test Target:** Cora - Zava Hardware Store's AI assistant with 50+ products
 
 [Start Lab 4 →](04-scan-advanced.md){ .md-button .md-button--primary }
 

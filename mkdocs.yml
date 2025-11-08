@@ -1,4 +1,4 @@
-site_name: AI Red Teaming Agent Labs
+site_name: "LAB 516: AI Red Teaming Agent"
 site_description: Safeguard your agents with AI Red Teaming Agent in Azure AI Foundry
 site_author: Microsoft
 
@@ -100,7 +100,7 @@ nav:
     - Lab 3 - Scan in the Cloud: core-labs/03-scan-cloud.md
   - More Labs:
     - Overview: more-labs/index.md
-    - Lab 4 - Complex Scans: more-labs/04-scan-advanced.md
+    - Lab 4 - Red Team Zava Chatbot: more-labs/04-scan-advanced.md
 
 extra:
   social:

@@ -19,6 +19,11 @@
 redteam_outputs/
 *.scan
 
+# Red teaming scan result JSON files
+*RedTeam*.json
+*redteam*.json
+red_team_output.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
