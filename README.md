@@ -30,6 +30,44 @@ By the end of this session, learners will be able to:
 1. Azure AI Evaluation SDK - for code-first setup & execution of scans
 1. Azure AI Foundry Portal - for viewing red teaming scan results 
 
+### 🚀 Getting Started
+
+This lab is setup for both instructor-led sessions (using the Skillable environment) and for self-guided sessions (using your own Azure subscription at home). In both cases, you will need to take these three steps to proceed further:
+
+1. **Fork The Repository** to get your own copy
+   - Log into GitHub using your personal account
+   - [Fork this repo](https://github.com/microsoft/ignite25-LAB516-safeguard-your-agents-with-ai-red-teaming-agent-in-azure-ai-foundry/fork) - then open the fork in a new browser tab.
+
+1. **Launch GitHub Codespaces** to get your development environment
+   - Click the blue "Code" button in your fork - select "Codespaces" tab
+   - Click the "+" button to create a new codespace - it opens a new tab
+   - You will see a VS Code editor in the browser - wait till it loads
+
+1. **Launch Workshop Guide** to get a web-based instruction guide 
+   - Open the VS Code terminal in the IDE above - wait till prompt is active
+   - Type `mkdocs serve > /dev/null 2>&1 &` - a dialog will pop up in a few seconds
+   - Select "Open in browser" option - a web-based guide will open in a new tab
+   - Click the **Begin Here** tab in navigation - follow instructions there!
+
+**Note:** The web-based guide has three useful features:
+
+- Built in search - quickly look up commands or sections on-demand
+- Theme modes - toggle between dark and light themes to suit preference
+- Easy copy/paste - hover on code-fenced region, click "copy to clipboard" icon
+
+At the end of this step you should have a browser open with three tabs:
+
+- [X] GitHub Repository tab - from which you launched codespaces
+- [X] GitHub Codespaces tab - which is your development environment
+- [X] Workshop Guide tab - which will provide step-by-step walkthroughs
+
+_You are now ready to continue the workshop using the guide_.
+
+
+
+
+---
+
 ### 🌟 Microsoft Learn MCP Server
 
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Docs_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=microsoft.docs.mcp&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Flearn.microsoft.com%2Fapi%2Fmcp%22%7D)

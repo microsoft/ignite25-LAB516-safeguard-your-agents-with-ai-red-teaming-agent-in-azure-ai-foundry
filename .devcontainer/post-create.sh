@@ -3,16 +3,18 @@ set -e
 
 echo "🚀 Starting post-create setup..."
 
-# Install/Update Azure Developer CLI to latest version
-echo "🔄 Installing/updating Azure Developer CLI (azd) to latest version..."
-curl -fsSL https://aka.ms/install-azd.sh | bash
+# Verify Azure Developer CLI version
+echo "🔍 Verifying Azure Developer CLI (azd) version..."
+INSTALLED_VERSION=$(azd version --output json 2>/dev/null | grep -o '"azd version [0-9.]*' | grep -o '[0-9.]*' || echo "0.0.0")
+MINIMUM_VERSION="1.20.3"
 
-# Install Bicep CLI
-echo "🔧 Installing Bicep CLI..."
-curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
-chmod +x ./bicep
-sudo mv ./bicep /usr/local/bin/bicep
-bicep --version
+# Compare versions (simple string comparison works for semantic versioning)
+if [ "$(printf '%s\n' "$MINIMUM_VERSION" "$INSTALLED_VERSION" | sort -V | head -n1)" = "$MINIMUM__VERSION" ]; then
+    echo "   ✅ Azure Developer CLI version is $INSTALLED_VERSION (>= $MINIMUM_VERSION)"
+else
+    echo "   ⚠️  Warning: Azure Developer CLI version $INSTALLED_VERSION is older than required $MINIMUM_VERSION"
+    echo "   Consider updating the devcontainer feature or manually updating azd"
+fi
 
 # Install Python packages
 echo "📚 Installing Python dependencies..."

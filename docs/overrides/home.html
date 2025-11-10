@@ -29,42 +29,52 @@
 <div class="hero-banner">
   <h3>Learning Objectives</h3>
   <ul class="objectives-list">
-    <li>Identify security vulnerabilities in AI agents using automated red team scans</li>
-    <li>Run local and cloud-based security tests with Azure AI Evaluation SDK</li>
-    <li>Analyze scan results to understand risk categories and attack patterns</li>
-    <li>Build custom security tests for application-specific threat scenarios</li>
+    <li>Identify security vulnerabiltiies in AI agents - with automated red-teaming</li>
+    <li>Run local and cloud-based security tests - with Azure AI Evaluation SDK</li>
+    <li>Analyze scan results to understand risk categories and attack patterns - with Azure AI Foundry</li>
+    <li>Build custom security tests for application-specific threat scenarios - like the Zava Retail Chatbot</li>
   </ul>
 </div>
 
 <div class="labs-grid">
-  <a href="begin-here/00-setup/" class="lab-card setup-lab">
+  <a href="begin-here/" class="lab-card setup-lab">
     <div class="lab-number">LAB 0</div>
-    <h3>Validate Setup</h3>
-    <p>Test your environment and verify all configurations are working</p>
+    <h3> Getting Started: Validate Setup</h3>
+    <p>
+      Understand architecture. Provision infrastructure. Setup local dev environment.
+    </p>
   </a>
   
   <a href="core-labs/01-scan-agent/" class="lab-card core-lab">
     <div class="lab-number">LAB 1</div>
-    <h3>Scan Azure AI Agent</h3>
-    <p>Run your first red team scan against an Azure AI agent</p>
+    <h3>Red Teaming: Default AI Agent</h3>
+    <p>
+      Run your first AI Red Teaming Agent scan on an AI Agent via callback. Analyze results.
+    </p>
   </a>
   
   <a href="core-labs/02-scan-model/" class="lab-card core-lab">
     <div class="lab-number">LAB 2</div>
-    <h3>Scan Models & Applications</h3>
-    <p>Test callbacks, models, and complete applications with custom prompts</p>
+    <h3>Red Teaming: Models & Apps</h3>
+    <p>
+      Run the AI Red Teaming Agent scan on an AI Model with app callbacks & custom prompts.
+    </p>
   </a>
   
   <a href="core-labs/03-scan-cloud/" class="lab-card core-lab">
     <div class="lab-number">LAB 3</div>
-    <h3>Cloud-Based Red Teaming</h3>
-    <p>Scale security testing with cloud-based scans in Azure AI Foundry</p>
+    <h3>Red Teaming: Cloud-Based Scan</h3>
+    <p>
+     Schedule and run the AI Red Teaming Agent scan in the cloud - make it scalable!
+    </p>
   </a>
   
   <a href="more-labs/04-scan-advanced/" class="lab-card more-lab">
     <div class="lab-number">LAB 4</div>
-    <h3>Red Team Zava Chatbot</h3>
-    <p>Test a production retail AI assistant with real product data for safety vulnerabilities</p>
+    <h3>Red Teaming: Retail Chatbot</h3>
+    <p>
+      Red-team a retail AI chatbot application with real product data for safety vulnerabilities
+    </p>
   </a>
 </div>
 {% endblock %}

@@ -1,206 +1,84 @@
-# Hands-On Labs
+# Hands-on Labs
 
-Welcome to the AI Red Teaming labs! These progressive exercises teach you how to identify and address safety vulnerabilities in AI systems using automated adversarial testing.
+The AI Red Teaming Agent Labs are organized into two tracks, to suit time constraints:
 
-## Before You Begin
+- Core labs cover the core concepts in the 60-minute session provided.
+- More labs provide advanced exercises that you can do at your own pace at home.
 
-!!! info "Prerequisites"
-    Complete the [Environment Setup](../begin-here/index.md) before starting any lab.
+## 1. Core Labs 
 
+In this section, we'll focus on these core labs:
 
-## Lab Progression
-
-Work through these labs sequentially to build your red teaming skills from foundational concepts to advanced techniques.
-
-## Lab Catalog
-
-### Core Red Teaming Labs
-
-| Lab | Title | Duration | Difficulty | Topics Covered |
+| Lab | Scan | Duration | Level | Objective |
 |-----|-------|----------|------------|----------------|
-| [Lab 1](01-scan-agent.md) | **Scan Azure AI Agent** | 20-30 min | 🟢 Beginner | First red team scan, agent callbacks, ASR metrics, results analysis |
-| [Lab 2](02-scan-model.md) | **Scan Models & Applications** | 30-45 min | 🟡 Intermediate | Target types (callbacks, models, apps), custom prompts, attack strategies |
-| [Lab 3](03-scan-cloud.md) | **Cloud-Based Red Teaming** | 25-35 min | 🟡 Intermediate | Azure AI Foundry SDK, cloud-scale scanning, portal monitoring |
+| [Lab 1](01-scan-agent.md) | **Azure AI Agent (callback)** | 15 min | 🟢 100 | Understand API & workflow |
+| [Lab 2](02-scan-model.md) | **Models & App Targets** | 25 min | 🟡 200 | Explore targets, risks, attacks |
+| [Lab 3](03-scan-cloud.md) | **In Cloud** | 10 min | 🟡 200 | Learn to scale scans |
+
+
+!!! tip "Want Advanced Labs (300-400 level)?"
+    Check out the [More Labs](../more-labs/index.md) section to see how to apply these concepts to real-world scenarios and learn advanced attack strategies or analysis techniques.
 
 ---
 
-!!! tip "Want More?"
-    Looking for advanced techniques? Check out the [More Labs](../more-labs/index.md) section for bonus content on sophisticated attack strategies!
+## 2. Configure Copilot
 
-## Learning Path
+AI technologies are evolving fast - and as learners, we need to actively build our intuition by asking questions and adopting a curiosity-driven mindset. GitHub Copilot can help. 
 
-```mermaid
-graph LR
-    A[Lab 0: Setup] --> B[Lab 1: Agent Scan]
-    B --> C[Lab 2: Models & Apps]
-    C --> D[Lab 3: Cloud Scans]
-    D -.-> E[More Labs: Advanced]
-    
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#e3f2fd,stroke:#1565c0
-    style C fill:#e3f2fd,stroke:#1565c0
-    style D fill:#e3f2fd,stroke:#1565c0
-    style E fill:#ffe0b2,stroke:#f57c00
-```
+!!! quote ""
 
-## What You'll Learn
+    **Using GitHub Copilot is optional. Complete these steps only if you want to explore AI assisted learning.**
 
-### Lab 0: Environment Setup
-Set up your Azure AI Foundry project and local tools.
+1. Open `.vscode/mcp.json` - verify Docs MCP server is running (else start it)
+1. Click the Copilot icon at the top of the Codespaces window - select "Open Chat"
+1. Log into GitHub if needed - wait for Copilot chat window to become active
+1. Switch to "Agent" mode - verify that a default model has been selected
 
-**Key Skills:**
+You are now ready to "Ask Copilot" for help.
 
-- Provision Azure resources using Bicep templates
-- Configure environment variables
-- Install Python SDKs (azure-ai-evaluation, azure-ai-projects)
-- Authenticate with Azure
+## 3. Ask Copilot
 
-### Lab 1: Scan Azure AI Agent
-Run your first AI Red Teaming scan against an Azure AI agent.
+Throughout the guide, we've set up "Ask Copilot" sections with suggested prompts you can try, to explore relevant concepts or dive deeper into a specific topic. Here are some examples:
 
-**Key Skills:**
+!!! prompt "Understanding Key Metrics"
 
-- Retrieve agents from Azure AI Foundry
-- Configure agent callbacks for testing
-- Execute red team scans with risk categories
-- Analyze Attack Success Rate (ASR) metrics
-- Interpret scan results
+    What is Attack Success Rate (ASR) in AI red teaming? How is it calculated and what does a 15% ASR mean for my AI system's safety?
 
-**Risk Categories:** Violence, Sexual Content
+!!! prompt "Risk Categories"
 
-### Lab 2: Scan Models & Applications
-Test different target types with progressive complexity.
+    What are the four risk categories (Violence, Sexual, Hate/Unfairness, Self-Harm) used in AI red teaming? Provide examples of attack prompts for each category.
 
-**Key Skills:**
+!!! prompt "Attack Complexity"
 
-- Create simple callback functions
-- Configure Azure OpenAI model targets
-- Build complex application callbacks (Chat Protocol)
-- Use custom attack prompts
-- Compare attack strategies and complexity levels
+    Explain the different attack complexity levels (Easy, Moderate, Difficult). What makes Base64 encoding "easy" while composition attacks are "difficult"?
 
-**Exercises:** 4 progressive scans (basic callback, model config, application target, custom prompts)
+!!! prompt "Attack Strategies"
 
-### Lab 3: Cloud-Based Red Teaming
-Scale security testing with Azure AI Foundry cloud infrastructure.
+    How do attack strategies like Base64, Flip, ROT13, Leetspeak, and Jailbreak work? Show me examples of each strategy.
 
-**Key Skills:**
+!!! prompt "Target Types"
 
-- Use Azure AI Projects SDK (v1.1.0b3+)
-- Submit cloud-based red team scans
-- Monitor scan progress in Azure AI Foundry Portal
-- Access centralized results and reports
-- Understand cloud vs. local scanning tradeoffs
+    What are the different target types supported by the AI Red Teaming Agent? When should I use simple callbacks vs model configs vs application callbacks?
 
-**Key Difference:** Cloud execution for scalable, pre-deployment testing
+!!! prompt "Local vs Cloud Scanning"
+
+    What's the difference between local and cloud-based red teaming? What are the tradeoffs and when should I use each approach?
+
+!!! prompt "Interpreting Results"
+
+    How do I interpret AI Red Teaming Agent scan reports? What should I look for in the results and what actions should I take based on ASR scores?
+
+**To Try A Prompt**
+
+- Copy a prompt into the GitHub Copilot chat window
+- Read the response - then ask clarifying questions
+- Alternatively - ask your own questions on the topic
+
+!!! tip "Say 'give me a Microsoft Docs reference' to ground responses better"
 
 ---
 
-## Next Steps
-
-After completing these core labs:
-
-1. ✓ **Practice**: Re-run scans with different configurations
-2. ✓ **Explore**: Try the [More Labs](../more-labs/index.md) for advanced techniques
-3. ✓ **Apply**: Use red teaming in your own AI projects
-4. ✓ **Learn More**: Visit [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-studio/)
-
-## Key Concepts
-
-### Attack Success Rate (ASR)
-
-The primary metric measuring the **percentage of attacks that successfully elicit unsafe content**. Lower ASR indicates better safety.
-
-**Example:**
-
-- 20 attack attempts
-- 3 successful (elicited unsafe content)
-- **ASR = 15%**
-
-### Risk Categories
-
-| Category | Description | Examples |
-|----------|-------------|----------|
-| **Violence** | Content intended to hurt, injure, or kill | Instructions for violence, glorification of harm |
-| **Sexual** | Sexual or adult content | Sexually explicit material, adult content |
-| **Hate/Unfairness** | Hateful or discriminatory content | Slurs, stereotypes, discrimination |
-| **Self-Harm** | Content promoting self-injury | Self-harm instructions, suicide encouragement |
-
-### Attack Complexity Levels
-
-| Complexity | Effort | Resources | Strategies |
-|------------|--------|-----------|------------|
-| **EASY** | Minimal | Simple encoding | Base64, Flip, Morse, Leetspeak |
-| **MODERATE** | Medium | LLM required | Tense (past tense conversion) |
-| **DIFFICULT** | High | Multiple LLMs | Composition (Tense + Base64) |
-
-### Target Types
-
-| Type | Use Case | Configuration |
-|------|----------|---------------|
-| **Simple Callback** | Quick testing | Python function: `query → response` |
-| **Model Config** | Direct model testing | Azure OpenAI deployment details |
-| **Application Callback** | Real-world apps | Chat protocol with system prompts, RAG |
-
-## Navigation Tips
-
-- **Use the sidebar** to jump between labs
-- Each lab includes **Learning Objectives**, **Ask Copilot** prompts, and step-by-step instructions
-- **Code samples** include copy buttons for easy use
-- Look for **admonitions** (colored boxes) highlighting important notes
-
-## Progress Tracking
-
-!!! tip "Recommended Approach"
-    
-    - **Complete labs in order** for the best learning experience
-    - **Run all code cells** to understand each concept
-    - **Analyze results** before moving to the next lab
-    - **Experiment** with different configurations
-
-## Time Commitment
-
-| Component | Duration |
-|-----------|----------|
-| **Environment Setup** | 15-20 minutes |
-| **Core Labs (1-3)** | 1.5-2 hours |
-| **Advanced Lab (4)** | 40-60 minutes |
-| **Total** | ~2.5-3 hours |
-
-## Getting Help
-
-!!! copilot "Ask GitHub Copilot"
-    
-    Throughout the labs, look for Copilot prompts to enhance your learning:
-    
-    - "Explain what Attack Success Rate means"
-    - "How do I interpret red team scan results?"
-    - "What's the difference between local and cloud scanning?"
-    - "Show me examples of attack strategies"
-
-### Community Support
-
-<div class="grid cards" markdown>
-
--   :fontawesome-brands-discord: **Discord**
-    
-    ---
-    
-    Join the Azure AI Foundry community
-    
-    [:octicons-arrow-right-24: Discord](https://discord.com/invite/ByRwuEEgH4)
-
--   :fontawesome-brands-github: **GitHub**
-    
-    ---
-    
-    Post questions in the forum
-    
-    [:octicons-arrow-right-24: Forum](https://aka.ms/foundry/forum)
-
-</div>
-
-## Additional Resources
+## 4. Additional Resources
 
 - [AI Red Teaming Agent Documentation](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-red-teaming-agent)
 - [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk)
@@ -208,9 +86,3 @@ The primary metric measuring the **percentage of attacks that successfully elici
 - [Azure AI Foundry Portal](https://ai.azure.com)
 
 ---
-
-!!! success "Ready to Start?"
-    Complete the [Begin Here](../begin-here/index.md) setup first, then jump to [Lab 1: Scan Azure AI Agent](01-scan-agent.md) to begin learning!
-
-[Start Lab 1 →](01-scan-agent.md){ .md-button .md-button--primary }
-[Back to Home](../index.md){ .md-button }

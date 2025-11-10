@@ -1,7 +1,9 @@
 # ==============================================================================
 # Documentation
 # ==============================================================================
-mkdocs-material
+# Fixing to specific version due to this bug
+# https://github.com/squidfunk/mkdocs-material/issues/8478
+mkdocs-material==9.6.20
 
 # ==============================================================================
 # General Python Dependencies

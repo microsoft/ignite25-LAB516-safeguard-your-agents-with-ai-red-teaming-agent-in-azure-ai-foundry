@@ -37,7 +37,7 @@ manage_gitignore() {
         if [ -f "$gitignore_path" ]; then
             if grep -q "^${pattern}$" "$gitignore_path"; then
                 echo -e "${YELLOW}Temporarily removing ${pattern} from .gitignore...${NC}"
-                sed -i "/^${pattern}$/d" "$gitignore_path"
+                sed -i "/^${pattern//\//\\/}$/d" "$gitignore_path"
                 echo -e "${GREEN}✓ Removed from .gitignore${NC}"
             else
                 echo -e "${YELLOW}${pattern} not found in .gitignore, skipping removal${NC}"

@@ -1,10 +1,6 @@
 # More Labs
 
-Explore advanced AI red teaming techniques and bonus content to deepen your understanding of security evaluation strategies.
-
-## Bonus Labs
-
-These advanced labs build upon the foundational knowledge from Labs 0-3 and introduce sophisticated testing techniques.
+These "bonus" labs build upon the foundational knowledge from Labs 0-3 and will capture advanced usage scenarios or dive deeper into key features with more nuanced exercises.
 
 ### Prerequisites
 
@@ -37,14 +33,6 @@ Test a production-ready AI shopping assistant with real product data for safety 
 [Start Lab 4 →](04-scan-advanced.md){ .md-button .md-button--primary }
 
 ---
-
-## Getting Help
-
-If you encounter issues or have questions:
-
-- Review the [Getting Started](../begin-here/index.md) guide
-- Check the main [Core Labs Overview](../core-labs/index.md)
-- Refer to [Azure AI documentation](https://learn.microsoft.com/azure/ai-studio/)
 
 ## Additional Topics
 

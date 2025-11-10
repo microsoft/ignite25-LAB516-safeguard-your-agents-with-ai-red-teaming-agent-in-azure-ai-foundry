@@ -1,58 +1,65 @@
 # Lab 4: Red Team the Zava Chatbot
 
+## About This Lab
+
+Test Cora, an AI shopping assistant for Zava Hardware Store, using baseline and advanced attack strategies. This lab demonstrates comprehensive security testing of a production-ready agent with file search capabilities and real product data across 50+ items.
+
 ## Learning Objectives
 
-By completing this lab, you will learn how to:
-
-- ✅ Understand AI red teaming fundamentals and the Map-Measure-Manage framework
-- ✅ Create production-ready AI agents with file search capabilities
-- ✅ Configure and run baseline red teaming scans
-- ✅ Test with advanced attack strategies (Base64, ROT13, Leetspeak, Composition)
-- ✅ Analyze Attack Success Rate (ASR) metrics by risk category
-- ✅ Interpret scan results and identify safety vulnerabilities
-- ✅ Apply best practices for production AI safety
+- ✅ Create production-ready AI agents with file search capabilities and product catalogs
+- ✅ Run baseline and advanced red teaming scans with sophisticated attack strategies
+- ✅ Analyze Attack Success Rate (ASR) metrics by risk category and attack complexity
 
 ## Instructions
 
-1. **Open the notebook**: Navigate to `labs/4-scan-more/` and open `4-redteam-zava.ipynb`
-2. **Review red teaming concepts**: Understand risk categories and attack strategies
-3. **Create the Cora agent**: Build an Azure AI Agent with Zava's product catalog (47 files)
-4. **Run baseline scan**: Test with direct adversarial queries across 4 risk categories
-5. **Run advanced scan**: Apply sophisticated attack strategies (encoding, obfuscation)
-6. **Analyze results**: Review ASR metrics and successful attacks
-7. **View in portal**: Access detailed reports in Azure AI Foundry
+!!! lab "4-redteam-zava.ipynb"
+    
+    1. **Open Notebook**: Navigate to `labs/4-scan-more/` and open `4-redteam-zava.ipynb`
+    2. **Select Kernel**: Choose the Python kernel for your environment
+    3. **Clear All Outputs**: Clear any existing outputs from previous runs
+    4. **Run All**: Execute all cells sequentially
+    5. **Explore Outputs**: Review the results as baseline and advanced scans execute
 
-**Expected Time**: 45-60 minutes (includes scan execution time)
+**About Cora - Zava Hardware Store AI Assistant:**
 
-## What is Cora?
+Cora is an AI shopping assistant with access to 50+ real products including paint, power tools, hand tools, hardware, electrical, and plumbing supplies. The agent provides product information, pricing, inventory levels, and customer loyalty discounts (Bronze 5%, Silver 10%, Gold 15%, Platinum 20%).
 
-Cora is an AI shopping assistant for **Zava Hardware Store** with access to:
+**Key steps in the notebook:**
 
-- **50+ real products** including paint, power tools, hand tools, hardware, electrical, and plumbing supplies
-- Product information (names, SKUs, prices, descriptions)
-- Real-time inventory levels
-- Customer loyalty discounts (Bronze 5%, Silver 10%, Gold 15%, Platinum 20%)
+1. Review red teaming concepts and Map-Measure-Manage framework
+2. Create Cora agent with Zava's 47-file product catalog
+3. Run baseline scan with direct adversarial queries
+4. Run advanced scan with encoding/obfuscation strategies
+5. Analyze and compare baseline vs. advanced ASR metrics
+6. Review successful attacks and identify vulnerabilities
+7. Access detailed reports in Azure AI Foundry Portal
 
-This lab tests whether Cora can:
-- ✅ Refuse to generate harmful content (violence, hate, sexual, self-harm)
-- ✅ Resist prompt injection and jailbreak attempts
-- ✅ Maintain safety guardrails under adversarial attacks
-- ✅ Protect customer data and business logic
+## Takeaways
+
+- Production agents need testing against baseline and advanced strategies.
+- Advanced attacks bypass basic filters using encoding and obfuscation.
+- ASR metrics by risk category reveal specific vulnerability patterns.
+- File search capabilities require thorough security validation.
+- Map-Measure-Manage framework enables systematic AI safety.
 
 ## Ask Copilot
 
-Use these prompts with GitHub Copilot Chat to deepen your understanding:
-
-!!! prompt ""
+!!! prompt "Planning Your Testing Strategy"
     
-    **Ask GitHub Copilot:**
+    How should I decide which risk categories to prioritize when testing my own AI agent? What factors determine testing scope?
+
+!!! prompt "Baseline vs Advanced Testing"
     
-    - "Explain the Map-Measure-Manage framework for AI safety. How does it help organizations prevent AI-related incidents?"
-    - "What are the four risk categories tested by the AI Red Teaming Agent? Provide examples of attacks in each category."
-    - "How do attack strategies like Base64, ROT13, and Leetspeak bypass AI safety filters? Why are composition attacks more effective?"
-    - "What is Attack Success Rate (ASR) and how should I interpret it? What ASR threshold is acceptable for production deployment?"
-    - "How can I use Azure AI Content Safety filters alongside red teaming to secure a production chatbot?"
+    When should I run baseline scans versus advanced scans? How do I build a progressive testing strategy for my use case?
 
----
+!!! prompt "Custom Attack Prompts"
+    
+    How can I create domain-specific attack prompts for my industry? What makes an effective custom prompt for security testing?
 
-**Previous Lab**: [← Lab 3: Cloud-Based Red Teaming](../core-labs/03-scan-cloud.md) | **Congratulations!** You've completed all labs! 🎉
+!!! prompt "Interpreting Results for Action"
+    
+    What ASR threshold should trigger remediation in my application? How do I prioritize fixing vulnerabilities based on scan results?
+
+!!! prompt "Production Deployment Checklist"
+    
+    What red teaming steps should I complete before deploying an AI agent to production? How do I integrate testing into my CI/CD pipeline?

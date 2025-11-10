@@ -1,243 +1,64 @@
-# Welcome
+# Workshop Overview
 
-This guide will help you set up your Azure AI Foundry environment and local development tools for the AI Red Teaming labs.
+## 1. Select Your Path
 
-## Prerequisites
+_The workshop guide is setup for use both in-venue (for instructor-led sessions) and at home (for self-guided learners). Pick the tab that reflects your learner context. It gets enforced site-wide, ensuring instructions are tailored to suit your context._
 
-Before starting these labs, ensure you have:
+=== "INSTRUCTOR LED SESSION"
 
-- **Azure Subscription** - Active Azure subscription with permissions to create resources
-- **GitHub Account** (optional) - For running in GitHub Codespaces
-- **VS Code** (optional) - For local development
-- **Python 3.10+** - Required for running notebooks and SDKs
+    - [X] **Location** - In a lab session at Microsoft Ignite
+    - [X] **Duration** - You have 75 minutes to complete lab
+    - [X] **Subscription** - You will be provided a Skillable subscription
+    - [X] **Infrastructure** - is pre-provisioned for you
 
-## Azure Resources Required
+=== "SELF-GUIDED SESSION"
 
-The labs require the following Azure resources:
+    - [ ] **Location** - Working by yourself, at home
+    - [ ] **Duration** - Complete the lab at your own pace
+    - [ ] **Subscription** - You will need your own Azure subscription
+    - [ ] **Infrastructure** - You will need to provision it manually
 
-1. **Azure AI Foundry Project** - Central hub for AI development
-2. **Azure OpenAI Service** - For deploying LLM models
-3. **Azure AI Services** - For safety evaluations
-4. **Azure Search** (optional) - For RAG scenarios
 
-!!! info "Supported Regions"
-    Choose a region that supports:
-    
-    - [Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview#region-availability)
-    - [Azure AI Search](https://learn.microsoft.com/azure/search/search-region-support#americas)
-    - [Risk and Safety Evaluators](https://learn.microsoft.com/azure/ai-foundry/concepts/evaluation-evaluators/risk-safety-evaluators#azure-ai-foundry-project-configuration-and-region-support)
-    
-    **Recommended regions**: France Central, Sweden Central, East US 2
+## 2. Workshop Objectives
 
-## Setup Options
+This workshop teaches you how to use the AI Red Teaming Agent in Azure AI Foundry to proactively scan your AI agents and applications for vulnerabilities _before deploying to production_. These scans _simulate adversarial attacks_ across multiple risk categories and attack strategies and generate reports that you can analyze to understand and mitigate these risks.
 
-Choose your preferred setup method:
+By the end of this lab you should be able to:
 
-=== "Skillable Hosted Environment"
+- [X] Describe risk categories and attack strategies for red teaming
+- [X] Create an AI Red Teaming Agent for desired risk categories
+- [X] Run a red teaming scan - for a target AI agent, model, or callback
+- [X] Run a red teaming scan  - from your local environment, or in the cloud
+- [X] Run a red teaming scan - with built-in or custom attack prompts
+- [X] View attack success rate (ASR) & analyze report for vulnerabilities
 
-    If you're using a Skillable hosted lab environment:
-    
-    1. Your Azure resources are **pre-provisioned**
-    2. Your environment variables are **pre-configured**
-    3. Skip to [Verify Setup](#verify-setup) below
-    
-    !!! success "Ready to Go!"
-        Your Skillable environment is ready. Proceed directly to Lab 1.
 
-=== "Self-Guided Setup"
+## 3. Prerequisites
 
-    If you're running the labs on your own:
-    
-    ### Step 1: Clone the Repository
-    
-    ```bash
-    git clone https://github.com/microsoft/ignite25-LAB516-safeguard-your-agents-with-ai-red-teaming-agent-in-azure-ai-foundry.git
-    cd ignite25-LAB516-safeguard-your-agents-with-ai-red-teaming-agent-in-azure-ai-foundry
-    ```
-    
-    ### Step 2: Provision Azure Resources
-    
-    Run the automated setup script:
-    
-    ```bash
-    cd infra
-    ./1-setup.sh
-    ```
-    
-    This script will:
-    
-    - Authenticate with Azure (`az login`)
-    - Create a resource group
-    - Deploy the Bicep template
-    - Provision AI Foundry project, OpenAI, and supporting services
-    
-    !!! warning "Deployment Time"
-        Infrastructure provisioning takes approximately **10-15 minutes**.
-    
-    ### Step 3: Configure Environment Variables
-    
-    After deployment completes, set up your environment:
-    
-    ```bash
-    # From the infra/ directory
-    ./2-setup-env.sh
-    ```
-    
-    This creates a `.env` file with your Azure resource credentials.
-    
-    ### Step 4: Load Environment Variables
-    
-    ```bash
-    # Load the environment variables
-    source ./2-setup-env.sh
-    ```
+To complete this workshop you will need:
 
-## Verify Setup
+- A personal GitHub account - [sign up here for free](https://github.com/signup)
+- An Azure subscription - [sign up here for free](https://aka.ms/free)
+- Access to relevant Azure AI services and models
+- Familiarity with VS Code, Git and GitHub tooling
+- Familiarity with Generative AI concepts & workflows
 
-Confirm your environment is configured correctly:
+**Self-guided learners will need an Azure Subscription**. In-venue attendees will be provided with one that has resources pre-provisioned for the lab.
 
-!!! task "Verify Azure Resources"
-    
-    Check that all resources were created:
-    
-    ```bash
-    az resource list --resource-group <your-resource-group-name> --output table
-    ```
-    
-    You should see approximately **7 resources**:
-    
-    - AI Foundry Hub
-    - AI Foundry Project
-    - Azure OpenAI Service
-    - Azure AI Services (Content Safety)
-    - Storage Account
-    - Key Vault
-    - Application Insights (if created)
+## 4. Azure Infrastructure
 
-!!! task "Verify Environment Variables"
-    
-    Check that your `.env` file contains:
-    
-    ```bash
-    cat ../.env
-    ```
-    
-    Required variables:
-    
-    - `PROJECT_CONNECTION_STRING`
-    - `AZURE_OPENAI_ENDPOINT`
-    - `AZURE_OPENAI_API_KEY`
-    - `AZURE_OPENAI_DEPLOYMENT`
-    - `AZURE_SUBSCRIPTION_ID`
-    - `AZURE_RESOURCE_GROUP`
+This lab uses a customized version of the [Getting Started With AI Agents](https://github.com/Azure-Samples/get-started-with-ai-agents) template for Azure AI Foundry. This sets up a basic Azure AI Foundry project with a model deployment and sample AI agent as shown in the architecture diagram below. The template has built-in support for tracing, monitoring, evaluations and red-teaming features - making it a good sandbox for this lab.
 
-!!! task "Verify Python Environment"
-    
-    Check Python version:
-    
-    ```bash
-    python --version  # Should be 3.10 or higher
-    ```
-    
-    Install required packages:
-    
-    ```bash
-    pip install -r requirements.txt
-    ```
+ ![Architecture](./../assets/architecture.png)
 
-## Install Required Packages
+**Self-guided learners will need to provision the infrastructure themselves**. We have provided scripts and instructions to make this simple. Review the links below to understand the region availability constraints for relevant resources. 
 
-The labs use several Azure AI SDKs:
+- [Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview#region-availability)
+- [Azure AI Search](https://learn.microsoft.com/azure/search/search-region-support#americas)
+- [Risk and Safety Evaluators](https://learn.microsoft.com/azure/ai-foundry/concepts/evaluation-evaluators/risk-safety-evaluators#azure-ai-foundry-project-configuration-and-region-support)
 
-```bash
-# Install from requirements.txt
-pip install -r requirements.txt
-```
-
-Key packages include:
-
-- `azure-ai-evaluation` - For local red team scans
-- `azure-ai-projects` - For cloud-based scans
-- `azure-identity` - For Azure authentication
-- `openai` - For Azure OpenAI integration
-- `python-dotenv` - For environment variable management
-
-## Authenticate with Azure
-
-!!! copilot "Ask GitHub Copilot"
-    
-    Try asking Copilot:
-    
-    - "How do I authenticate with Azure CLI?"
-    - "What's the difference between DefaultAzureCredential and AzureCliCredential?"
-    - "Show me how to verify my Azure authentication"
-
-Authenticate using Azure CLI:
-
-```bash
-az login
-```
-
-This opens a browser window for authentication. After successful login, you'll see your subscriptions listed.
-
-Set your default subscription (if needed):
-
-```bash
-az account set --subscription "<your-subscription-id>"
-```
-
-## Troubleshooting
-
-### Common Issues
-
-??? question "Error: Region doesn't support required services"
-    
-    **Solution**: Choose a different region from the [recommended list](#azure-resources-required).
-    
-    Update `infra/azuredeploy.parameters.json` with the new region and redeploy.
-
-??? question "Error: Insufficient quota for model deployment"
-    
-    **Solution**: Request quota increase in Azure Portal:
-    
-    1. Navigate to Azure OpenAI resource
-    2. Go to "Quotas" section
-    3. Request increase for desired model
-    4. Wait for approval (can take 1-2 business days)
-
-??? question "Error: .env file not found"
-    
-    **Solution**: Run the setup script again:
-    
-    ```bash
-    cd infra
-    ./2-setup-env.sh
-    ```
-
-??? question "Error: Import azure.ai.evaluation failed"
-    
-    **Solution**: Ensure packages are installed:
-    
-    ```bash
-    pip install --upgrade azure-ai-evaluation azure-ai-projects
-    ```
-
-## Next Steps
-
-Once your environment is set up:
-
-1. **[Return to Labs Overview](../core-labs/index.md)** - See all available labs
-2. **[Start Lab 1](../core-labs/01-scan-agent.md)** - Run your first red team scan
-3. **[Join the Community](https://discord.com/invite/ByRwuEEgH4)** - Connect with other learners
-
-## Additional Resources
-
-- [Azure AI Foundry Documentation](https://learn.microsoft.com/azure/ai-foundry/)
-- [AI Red Teaming Agent Documentation](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-red-teaming-agent)
-- [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk)
-- [Responsible AI Resources](https://www.microsoft.com/ai/responsible-ai)
+**Our recommendation:** Use Sweden Central, France Central or East US 2
 
 ---
 
-!!! success "Setup Complete!"
-    Your environment is ready. Proceed to [Lab 1: Scan Azure AI Agent](../core-labs/01-scan-agent.md) to begin learning!
+!!! success "NOW READY TO PROCEED TO [LAB 0: ENVIRONMENT SETUP](00-setup.md)!"
