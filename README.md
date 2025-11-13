@@ -9,6 +9,17 @@
 [![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/AIFoundryDiscord-Ignite25)
 [![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=adff2f&logoColor=fff)](https://aka.ms/AIFoundryForum-Ignite25)
 
+### Who Should Take This Lab?
+
+This lab is ideal for:
+
+1. **AI Developers** who want to improve the security posture of their apps
+1. **Cloud Architects** evaluating security tools & practices for AI solutions
+1. **AI Beginners** who want to learn AI Red Teaming tools & concepts
+
+**Pre-Requisites**: We assume basic familiarity with AI application develoment and the AI Ops lifecycle. The lab uses GitHub Codespaces, VS Code & Python Notebooks - familiarity with these is ideal. You **must** have a GitHub account to get started.
+
+
 ### Session Description
 This hands-on workshop will introduce participants to the fundamentals of [automated AI red teaming](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-red-teaming-agent) of generative AI systems for safety and security risks using Azure AI Foundry. Attendees will learn how to apply automated attack techniques to identify safety issues and security vulnerabilities across multiple risk dimensions before deployment. Participants will engage in hands-on walkthroughs and guided exercises to apply these concepts in realistic development scenarios.
 
@@ -16,27 +27,32 @@ This hands-on workshop will introduce participants to the fundamentals of [autom
 
 By the end of this session, learners will be able to:
 
-- describe what the AI Red Teaming Agent does, and why it matters
-- understand the risk categories and attack strategies for AI red teaming
-- run an AI Red Teaming Agent scan locally - using the Azure AI Evaluation SDK
-- run an AI Red Teaming Agent scan in cloud - using the Azure AI Foundry SDK
-- view and analyze scan results - locally and in Azure AI Foundry Portal
-- create and run custom scans using app-specific callbacks & prompts
+- describe what the AI Red Teaming Agent does and why it matters for AI safety
+- identify and test against core risk categories with diverse attack strategies 
+- configure and test different target types (callbacks, models & app endpoints)
+- run AI Red Teaming Agent scans locally and in the cloud (using Azure AI SDKs)
+- analyze scan results & metrics locally and in the cloud (using Azure AI Foundry Portal)
+- compare baseline and advanced attack strategies for a real-world scenario
 
 ### 💻 Technologies Used
 
-1. Azure Developer CLI - for provisioning a basic AI Agent app
-1. Azure AI Red Teaming Agent - for adversarial testing of your AI app
-1. Azure AI Evaluation SDK - for code-first setup & execution of scans
-1. Azure AI Foundry Portal - for viewing red teaming scan results 
+1. [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) - for provisioning a basic AI Agent app
+1. [Azure AI Foundry Portal](https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry) - for project management and viewing scan results
+1. [Azure AI Foundry SDK](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme) - for cloud-based red teaming operations
+1. [Azure AI Red Teaming Agent](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-red-teaming-agent) - for adversarial testing of your AI app
+1. [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk) - for local setup & execution of scans
+1. [Azure AI Agents](https://learn.microsoft.com/azure/ai-foundry/agents/overview) - for creating intelligent agents with tools and custom functions
+1. [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-foundry/openai/overview) - for accessing GPT-4 and other language models
+1. [PyRIT](https://github.com/Azure/PyRIT) - Python Risk Identification Tool framework underlying the red teaming agent
 
 ### 🚀 Getting Started
 
-This lab is setup for both instructor-led sessions (using the Skillable environment) and for self-guided sessions (using your own Azure subscription at home). In both cases, you will need to take these three steps to proceed further:
+This lab is setup for both instructor-led sessions (pre-provisioned Skillable subscription) and self-guided learning (manually provisioned with your own Azure subscription). In both cases, we _recommend_ using the following approach for a quick start.
 
-1. **Fork The Repository** to get your own copy
+1. **Create a personal copy** of the repo to make changes.
    - Log into GitHub using your personal account
-   - [Fork this repo](https://github.com/microsoft/ignite25-LAB516-safeguard-your-agents-with-ai-red-teaming-agent-in-azure-ai-foundry/fork) - then open the fork in a new browser tab.
+   - [Fork this repo](https://github.com/microsoft/ignite25-LAB516-safeguard-your-agents-with-ai-red-teaming-agent-in-azure-ai-foundry/fork) to get your personal copy. 
+   - Open the fork in a new browser tab.
 
 1. **Launch GitHub Codespaces** to get your development environment
    - Click the blue "Code" button in your fork - select "Codespaces" tab
@@ -49,19 +65,19 @@ This lab is setup for both instructor-led sessions (using the Skillable environm
    - Select "Open in browser" option - a web-based guide will open in a new tab
    - Click the **Begin Here** tab in navigation - follow instructions there!
 
-**Note:** The web-based guide has three useful features:
+Using the web-based instruction guide has three benefits:
 
-- Built in search - quickly look up commands or sections on-demand
-- Theme modes - toggle between dark and light themes to suit preference
-- Easy copy/paste - hover on code-fenced region, click "copy to clipboard" icon
+1. **Search effectively** - quickly look up commands or sections on-demand
+1. **Copy/Paste quickly** - hover on code regions to see _copy to clipboard_ option
+1. **Toggle theme** - setup for light and dark theme modes to suit your preference
 
-At the end of this step you should have a browser open with three tabs:
+_You should now have a browser with three open tabs:_
 
 - [X] GitHub Repository tab - from which you launched codespaces
 - [X] GitHub Codespaces tab - which is your development environment
 - [X] Workshop Guide tab - which will provide step-by-step walkthroughs
 
-_You are now ready to continue the workshop using the guide_.
+Ready to get to work? Let's go! 🚀
 
 
 
@@ -82,7 +98,7 @@ For more information, setup instructions for other dev clients, and to post comm
 
 | Resources          | Links                             | Description        |
 |:-------------------|:----------------------------------|:-------------------|
-| Ignite 2025 Next Steps | [https://aka.ms/Ignite25-Next-Steps](https://aka.ms/Ignite25-Next-Steps?ocid=ignite25_nextsteps_cnl) | Links to all repos for Ignite 2025 Sessions|
+| Ignite 2025 Next Steps | [https://aka.ms/Ignite25-Next-Steps](https://aka.ms/Ignite25-Next-Steps?ocid=ignite25_nextsteps_cnl) | Links to all repos for Microsoft Ignite Sessions|
 | Azure AI Foundry Community Discord | [![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/AIFoundryDiscord-Ignite25)| Connect with the Azure AI Foundry Community! |
 | Learn at Ignite | [https://aka.ms/LearnAtIgnite](https://aka.ms/LearnAtIgnite?ocid=ignite25_nextsteps_github_cnl) | Continue learning on Microsoft Learn |
 
