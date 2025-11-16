@@ -39,8 +39,56 @@ SELECTED_SUB_NAME=$(az account show --query "name" -o tsv)
 echo "✓ Using subscription: $SELECTED_SUB_NAME"
 echo ""
 
-# Step 4: Ask for resource group name
-read -p "Enter resource group name: " SELECTED_RG
+# Step 4: Find matching resource groups
+echo "Searching for resource groups..."
+ALL_RGS=($(az group list --query "[].name" -o tsv))
+
+# Find all matching resource groups with priority
+PRIORITY_1_RGS=()  # rg-Ignite*
+PRIORITY_2_RGS=()  # rg-*Ignite* or rg-*516*
+
+for rg in "${ALL_RGS[@]}"; do
+    # Priority 1: Starts with "rg-Ignite" or "rg-ignite" (case-insensitive)
+    if [[ "${rg,,}" == rg-ignite* ]]; then
+        PRIORITY_1_RGS+=("$rg")
+    # Priority 2: Contains "Ignite" or "516" anywhere after "rg-"
+    elif [[ "${rg,,}" == rg-*ignite* ]] || [[ "$rg" == *516* ]]; then
+        PRIORITY_2_RGS+=("$rg")
+    fi
+done
+
+# Combine arrays with priority 1 first
+MATCHED_RGS=("${PRIORITY_1_RGS[@]}" "${PRIORITY_2_RGS[@]}")
+
+# Step 5: Display matching resource groups and let user pick
+if [ ${#MATCHED_RGS[@]} -gt 0 ]; then
+    echo ""
+    echo "Found matching resource groups:"
+    for i in "${!MATCHED_RGS[@]}"; do
+        printf "%2d) %s\n" $((i+1)) "${MATCHED_RGS[$i]}"
+    done
+    echo ""
+    read -p "Select resource group number (or press Enter and type a different name): " RG_CHOICE
+    
+    if [ -z "$RG_CHOICE" ]; then
+        # User pressed Enter without selecting
+        read -p "Enter resource group name: " SELECTED_RG
+    elif [[ "$RG_CHOICE" =~ ^[0-9]+$ ]] && [ "$RG_CHOICE" -ge 1 ] && [ "$RG_CHOICE" -le ${#MATCHED_RGS[@]} ]; then
+        # Valid number selected
+        SELECTED_RG="${MATCHED_RGS[$((RG_CHOICE-1))]}"
+        echo "✓ Selected: $SELECTED_RG"
+    else
+        # Invalid number, treat as a resource group name
+        SELECTED_RG="$RG_CHOICE"
+    fi
+else
+    echo "No matching resource groups found."
+    echo ""
+    echo "Available Resource Groups:"
+    az group list --query "[].name" -o tsv | nl
+    echo ""
+    read -p "Enter resource group name: " SELECTED_RG
+fi
 
 # Verify the resource group exists
 if ! az group show --name "$SELECTED_RG" &> /dev/null; then
@@ -191,67 +239,12 @@ else
 fi
 echo ""
 
-# Step 9: Find agents
-DEFAULT_AGENT="agent-template-assistant"
-
-if [ -z "$SELECTED_PROJECT" ]; then
-    echo "Skipping agent search - no AI Project selected"
-    SELECTED_AGENT=""
-else
-    echo "Searching for agents in project $SELECTED_PROJECT..."
-    
-    # Try to list agents using the AI Foundry API
-    # Note: This requires the project endpoint
-    # We'll use az rest to query the agents API
-    
-    # Construct the full resource name for the project
-    FULL_PROJECT_NAME="$SELECTED_RESOURCE/$SELECTED_PROJECT"
-    
-    # Try to get agents via REST API
-    AGENTS=($(az rest \
-        --method GET \
-        --url "https://management.azure.com/subscriptions/$SELECTED_SUB/resourceGroups/$SELECTED_RG/providers/Microsoft.CognitiveServices/accounts/$SELECTED_RESOURCE/projects/$SELECTED_PROJECT/agents?api-version=2025-04-01-preview" \
-        --query "value[].name" \
-        -o tsv 2>/dev/null))
-    
-    if [ ${#AGENTS[@]} -eq 0 ]; then
-        echo "No agents found via API"
-        read -p "Enter agent name (default: $DEFAULT_AGENT): " SELECTED_AGENT
-        SELECTED_AGENT="${SELECTED_AGENT:-$DEFAULT_AGENT}"
-        echo "✓ Using: $SELECTED_AGENT"
-    elif [ ${#AGENTS[@]} -eq 1 ]; then
-        FOUND_AGENT="${AGENTS[0]}"
-        echo "✓ Found agent: $FOUND_AGENT"
-        read -p "Use this agent or enter a different name (default: $FOUND_AGENT): " SELECTED_AGENT
-        SELECTED_AGENT="${SELECTED_AGENT:-$FOUND_AGENT}"
-        if [ "$SELECTED_AGENT" != "$FOUND_AGENT" ]; then
-            echo "✓ Using: $SELECTED_AGENT"
-        fi
-    else
-        echo ""
-        echo "Available Agents:"
-        for i in "${!AGENTS[@]}"; do
-            printf "%2d) %s\n" $((i+1)) "${AGENTS[$i]}"
-        done
-        echo ""
-        read -p "Select agent (enter number) or press Enter to use default ($DEFAULT_AGENT): " AGENT_CHOICE
-        if [ -z "$AGENT_CHOICE" ]; then
-            SELECTED_AGENT="$DEFAULT_AGENT"
-            echo "✓ Using default: $SELECTED_AGENT"
-        else
-            SELECTED_AGENT="${AGENTS[$((AGENT_CHOICE-1))]}"
-            echo "✓ Selected: $SELECTED_AGENT"
-        fi
-    fi
-fi
-echo ""
-
 # Update .env file
 echo "Updating .env file..."
 
 # Set defaults for empty values
 SELECTED_DEPLOYMENT="${SELECTED_DEPLOYMENT:-}"
-SELECTED_AGENT="${SELECTED_AGENT:-}"
+SELECTED_AGENT="RedTeaming-Cora"
 
 # Get Azure OpenAI endpoint and key for Lab 2
 if [ -n "$SELECTED_RESOURCE" ]; then
@@ -347,7 +340,6 @@ echo "  AI Service: $SELECTED_RESOURCE"
 echo "  AI Project: $SELECTED_PROJECT"
 echo "  Project Endpoint: $PROJECT_ENDPOINT"
 echo "  Model Deployment: $SELECTED_DEPLOYMENT"
-echo "  Agent Name: $SELECTED_AGENT"
 echo ""
 echo "Lab 2 - Azure OpenAI Configuration:"
 echo "  OpenAI Endpoint: $AZURE_OPENAI_ENDPOINT"

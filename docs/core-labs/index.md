@@ -2,12 +2,10 @@
 
 The AI Red Teaming Agent Labs are organized into two tracks, to suit time constraints:
 
-- Core labs cover the core concepts in the 60-minute session provided.
-- More labs provide advanced exercises that you can do at your own pace at home.
+- **CORE LABS** - cover the core concepts in the 60-minute session provided.
+- **MORE LABS** - provide additional labs you can do at home, to upskill further.
 
-## 1. Core Labs 
-
-In this section, we'll focus on these core labs:
+!!! task "Let's focus on completing the Core Labs - this gives you a sense for time required for each"
 
 | Lab | Scan | Duration | Level | Objective |
 |-----|-------|----------|------------|----------------|
@@ -15,66 +13,58 @@ In this section, we'll focus on these core labs:
 | [Lab 2](02-scan-model.md) | **Models & App Targets** | 25 min | 🟡 200 | Explore targets, risks, attacks |
 | [Lab 3](03-scan-cloud.md) | **In Cloud** | 10 min | 🟡 200 | Learn to scale scans |
 
+---
 
-!!! tip "Want Advanced Labs (300-400 level)?"
-    Check out the [More Labs](../more-labs/index.md) section to see how to apply these concepts to real-world scenarios and learn advanced attack strategies or analysis techniques.
+## 2. Test GitHub Copilot 
+
+These technologies and tools evolve quickly. As learners, we need to actively build our intuition by asking questions and cultivating our curiosity. This is where GitHub Copilot can help. In every lab instructions page, we provide sample prompts you can use as a "conversation starter". 
+
+**This is completely optional** - please be mindful of the time to complete each lab!
+
+!!! task "Let's do a quick test to see if GitHub Copilot works for you - this section is optional!"
+
+    1. Open `.vscode/mcp.json` - verify Docs MCP server is running (else start it)
+    1. Click the Copilot icon at the top of the Codespaces window - select "Open Chat"
+    1. Log into GitHub if needed - wait for Copilot chat window to become active
+    1. Leave it in **Ask** mode for now - verify that a default model has been selected
+
+!!! success "You are now ready to "Ask Copilot" for help."
 
 ---
 
-## 2. Configure Copilot
-
-AI technologies are evolving fast - and as learners, we need to actively build our intuition by asking questions and adopting a curiosity-driven mindset. GitHub Copilot can help. 
-
-!!! quote ""
-
-    **Using GitHub Copilot is optional. Complete these steps only if you want to explore AI assisted learning.**
-
-1. Open `.vscode/mcp.json` - verify Docs MCP server is running (else start it)
-1. Click the Copilot icon at the top of the Codespaces window - select "Open Chat"
-1. Log into GitHub if needed - wait for Copilot chat window to become active
-1. Switch to "Agent" mode - verify that a default model has been selected
-
-You are now ready to "Ask Copilot" for help.
-
 ## 3. Ask Copilot
 
-Throughout the guide, we've set up "Ask Copilot" sections with suggested prompts you can try, to explore relevant concepts or dive deeper into a specific topic. Here are some examples:
+Look for "Ask Copilot" prompt admonitions like this throughout the course. 
 
-!!! prompt "Understanding Key Metrics"
+!!! prompt "ASK COPILOT"
 
-    What is Attack Success Rate (ASR) in AI red teaming? How is it calculated and what does a 15% ASR mean for my AI system's safety?
-
-!!! prompt "Risk Categories"
-
-    What are the four risk categories (Violence, Sexual, Hate/Unfairness, Self-Harm) used in AI red teaming? Provide examples of attack prompts for each category.
-
-!!! prompt "Attack Complexity"
-
-    Explain the different attack complexity levels (Easy, Moderate, Difficult). What makes Base64 encoding "easy" while composition attacks are "difficult"?
-
-!!! prompt "Attack Strategies"
-
-    How do attack strategies like Base64, Flip, ROT13, Leetspeak, and Jailbreak work? Show me examples of each strategy.
-
-!!! prompt "Target Types"
-
-    What are the different target types supported by the AI Red Teaming Agent? When should I use simple callbacks vs model configs vs application callbacks?
-
-!!! prompt "Local vs Cloud Scanning"
-
-    What's the difference between local and cloud-based red teaming? What are the tradeoffs and when should I use each approach?
-
-!!! prompt "Interpreting Results"
-
-    How do I interpret AI Red Teaming Agent scan reports? What should I look for in the results and what actions should I take based on ASR scores?
+    ```title="" linenums="0"
+    What is AI Red Teaming? Explain briefly in 1-3 bullet points.
+    ```
 
 **To Try A Prompt**
 
-- Copy a prompt into the GitHub Copilot chat window
-- Read the response - then ask clarifying questions
-- Alternatively - ask your own questions on the topic
+1. Hover over the code block in the prompt - click the copy icon
+1. Move to the copilot chat window - paste the prompt & enter
+1. You will see something like this - your exact response may differ
 
-!!! tip "Say 'give me a Microsoft Docs reference' to ground responses better"
+!!! quote ""
+
+    Used 4 references 
+    ...
+
+    AI Red Teaming is a proactive security testing approach for AI systems:
+
+    1. Adversarial Testing: Systematically attempting to find vulnerabilities, weaknesses, and harmful behaviors in AI models by simulating attacks and malicious inputs (like prompt injections, jailbreaks, or bias exploitation).
+    
+    1. Safety Evaluation: Testing AI systems against specific risk categories (hate speech, violence, self-harm, sexual content, etc.) to identify failure modes and unintended behaviors before deployment.
+
+    1. Automated & Manual Testing: Using both automated tools (like Azure AI's red teaming agent) and human red teamers to probe models with diverse attack strategies and edge cases, helping developers build more robust and responsible AI systems.
+
+
+!!! success "You verified you can Ask Copilot for helpful explanations!"
+
+**You are ready to begin the Core Labs!**
 
 ---
 

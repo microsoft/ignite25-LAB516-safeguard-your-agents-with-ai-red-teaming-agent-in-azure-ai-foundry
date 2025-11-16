@@ -20,11 +20,13 @@ Test Cora, an AI shopping assistant for Zava Hardware Store, using baseline and 
     4. **Run All**: Execute all cells sequentially
     5. **Explore Outputs**: Review the results as baseline and advanced scans execute
 
-**About Cora - Zava Hardware Store AI Assistant:**
 
-Cora is an AI shopping assistant with access to 50+ real products including paint, power tools, hand tools, hardware, electrical, and plumbing supplies. The agent provides product information, pricing, inventory levels, and customer loyalty discounts (Bronze 5%, Silver 10%, Gold 15%, Platinum 20%).
 
-**Key steps in the notebook:**
+!!! quote "**About Cora - Zava Hardware Store AI Assistant:**"
+
+    Cora is an AI shopping assistant with access to 50+ real products including paint, power tools, hand tools, hardware, electrical, and plumbing supplies. The agent provides product information, pricing, inventory levels, and customer loyalty discounts (Bronze 5%, Silver 10%, Gold 15%, Platinum 20%).
+
+## What You'll Do
 
 1. Review red teaming concepts and Map-Measure-Manage framework
 2. Create Cora agent with Zava's 47-file product catalog
@@ -34,7 +36,7 @@ Cora is an AI shopping assistant with access to 50+ real products including pain
 6. Review successful attacks and identify vulnerabilities
 7. Access detailed reports in Azure AI Foundry Portal
 
-## Takeaways
+## What You'll Learn
 
 - Production agents need testing against baseline and advanced strategies.
 - Advanced attacks bypass basic filters using encoding and obfuscation.
@@ -44,22 +46,15 @@ Cora is an AI shopping assistant with access to 50+ real products including pain
 
 ## Ask Copilot
 
-!!! prompt "Planning Your Testing Strategy"
-    
-    How should I decide which risk categories to prioritize when testing my own AI agent? What factors determine testing scope?
+!!! prompt "ASK COPILOT: About Baseline vs Advanced Testing"
 
-!!! prompt "Baseline vs Advanced Testing"
-    
+    ```title="" linenums="0"
     When should I run baseline scans versus advanced scans? How do I build a progressive testing strategy for my use case?
+    ```
 
-!!! prompt "Custom Attack Prompts"
-    
-    How can I create domain-specific attack prompts for my industry? What makes an effective custom prompt for security testing?
+Try coming up with prompts on your own about:
 
-!!! prompt "Interpreting Results for Action"
-    
-    What ASR threshold should trigger remediation in my application? How do I prioritize fixing vulnerabilities based on scan results?
-
-!!! prompt "Production Deployment Checklist"
-    
-    What red teaming steps should I complete before deploying an AI agent to production? How do I integrate testing into my CI/CD pipeline?
+1. Planning your testing strategy and prioritizing risk categories
+1. Creating domain-specific custom attack prompts
+1. Interpreting ASR results and setting remediation thresholds
+1. Production deployment checklist and CI/CD integration

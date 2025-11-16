@@ -6,58 +6,75 @@ _The workshop guide is setup for use both in-venue (for instructor-led sessions)
 
 === "INSTRUCTOR LED SESSION"
 
-    - [X] **Location** - In a lab session at Microsoft Ignite
-    - [X] **Duration** - You have 75 minutes to complete lab
-    - [X] **Subscription** - You will be provided a Skillable subscription
-    - [X] **Infrastructure** - is pre-provisioned for you
+    Pick this tab if you are in an instructor led session at Microsoft Ignite.
+
+    - **Duration** - Your session is 75 minutes.
+    - **Subscription** - You will use the subscription provided by Skillable
+    - **Infrastructure** - Has been pre-provisioned for you!
+
+    **✅ You're all set! [Move directly to the next step to validate it!](./00-setup.md)**
 
 === "SELF-GUIDED SESSION"
 
-    - [ ] **Location** - Working by yourself, at home
-    - [ ] **Duration** - Complete the lab at your own pace
-    - [ ] **Subscription** - You will need your own Azure subscription
-    - [ ] **Infrastructure** - You will need to provision it manually
+    Pick this tab if you are working through this on your own.
+
+    - **Duration** - Complete the lab at your own pace
+    - **Subscription** - You will need your own Azure subscription
+    - **Infrastructure** - You will provision resources using scripts we provide
+
+
+
 
 
 ## 2. Workshop Objectives
 
 This workshop teaches you how to use the AI Red Teaming Agent in Azure AI Foundry to proactively scan your AI agents and applications for vulnerabilities _before deploying to production_. These scans _simulate adversarial attacks_ across multiple risk categories and attack strategies and generate reports that you can analyze to understand and mitigate these risks.
 
-By the end of this lab you should be able to:
+!!! quote ""
 
-- [X] Describe risk categories and attack strategies for red teaming
-- [X] Create an AI Red Teaming Agent for desired risk categories
-- [X] Run a red teaming scan - for a target AI agent, model, or callback
-- [X] Run a red teaming scan  - from your local environment, or in the cloud
-- [X] Run a red teaming scan - with built-in or custom attack prompts
-- [X] View attack success rate (ASR) & analyze report for vulnerabilities
+    By the end of this lab you should be able to:
+
+    - [X] Describe risk categories and attack strategies for red teaming
+    - [X] Create an AI Red Teaming Agent for desired risk categories
+    - [X] Run a red teaming scan - for a target AI agent, model, or callback
+    - [X] Run a red teaming scan  - from your local environment, or in the cloud
+    - [X] Run a red teaming scan - with built-in or custom attack prompts
+    - [X] View attack success rate (ASR) & analyze report for vulnerabilities
 
 
 ## 3. Prerequisites
 
-To complete this workshop you will need:
+!!! quote ""
+    Note: We provide a laptop with an Azure subscription pre-provisioned for you, for instructor-led sessions.
 
-- A personal GitHub account - [sign up here for free](https://github.com/signup)
+To complete the lab, you will need:
+
+- A laptop with a modern browser installed - we recommend Microsoft Edge
 - An Azure subscription - [sign up here for free](https://aka.ms/free)
-- Access to relevant Azure AI services and models
+- A personal GitHub account - [sign up here for free](https://github.com/signup)
 - Familiarity with VS Code, Git and GitHub tooling
 - Familiarity with Generative AI concepts & workflows
 
-**Self-guided learners will need an Azure Subscription**. In-venue attendees will be provided with one that has resources pre-provisioned for the lab.
 
 ## 4. Azure Infrastructure
 
-This lab uses a customized version of the [Getting Started With AI Agents](https://github.com/Azure-Samples/get-started-with-ai-agents) template for Azure AI Foundry. This sets up a basic Azure AI Foundry project with a model deployment and sample AI agent as shown in the architecture diagram below. The template has built-in support for tracing, monitoring, evaluations and red-teaming features - making it a good sandbox for this lab.
+!!! quote ""
+    This lab uses a customized version of the [Getting Started With AI Agents](https://github.com/Azure-Samples/get-started-with-ai-agents) template for Azure AI Foundry. 
+
+    - It is pre-provisioned for instructor-led sessions. Participants are all set.
+    - We provide scripts for self-guided learners to do this manually. It takes ~15-20 mins.
+    
+This sets up a basic Azure AI Foundry project with a model deployment and sample AI agent as shown in the architecture diagram below. The template has built-in support for tracing, monitoring, evaluations and red-teaming features - making it a good sandbox for this lab.
 
  ![Architecture](./../assets/architecture.png)
 
-**Self-guided learners will need to provision the infrastructure themselves**. We have provided scripts and instructions to make this simple. Review the links below to understand the region availability constraints for relevant resources. 
 
+If provisioning it yourself, review region availability constraints when selecting location. **Our recommendation:** Use Sweden Central, France Central or East US 2
+    
 - [Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview#region-availability)
 - [Azure AI Search](https://learn.microsoft.com/azure/search/search-region-support#americas)
 - [Risk and Safety Evaluators](https://learn.microsoft.com/azure/ai-foundry/concepts/evaluation-evaluators/risk-safety-evaluators#azure-ai-foundry-project-configuration-and-region-support)
 
-**Our recommendation:** Use Sweden Central, France Central or East US 2
 
 ---
 
