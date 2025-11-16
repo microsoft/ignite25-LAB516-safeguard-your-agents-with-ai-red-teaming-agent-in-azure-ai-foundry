@@ -20,7 +20,7 @@ Scale your security testing by running red team scans in Azure AI Foundry cloud 
     4. **Run All**: Execute all cells sequentially
     5. **Explore Outputs**: Review the results in each cell as the scan submits
 
-**Key steps in the notebook:**
+## What You'll Do
 
 1. Verify you have `azure-ai-projects==1.1.0b3` or later installed
 2. Import the cloud-based RedTeam class from `azure.ai.projects`
@@ -30,7 +30,9 @@ Scale your security testing by running red team scans in Azure AI Foundry cloud 
 6. Monitor scan progress and view results when complete (typically 5-10 minutes)
 7. Explore comprehensive reports, visualizations, and data views in the portal
 
-## Takeaways
+---
+
+## What You'll Learn
 
 - Cloud scans run on Azure infrastructure without local resources.
 - Scans execute asynchronously and complete in 5-10 minutes.
@@ -38,24 +40,19 @@ Scale your security testing by running red team scans in Azure AI Foundry cloud 
 - Portal results enable team collaboration and remediation tracking.
 - Azure AI Projects SDK v1.1.0b3+ enables cloud scanning.
 
+---
+
 ## Ask Copilot
 
-!!! prompt "Local vs Cloud Scanning"
-    
+!!! prompt "ASK COPILOT: About Local vs Cloud Scanning"
+
+    ```title="" linenums="0"
     What's the difference between local and cloud-based AI red teaming? When should I use each approach, and what are the tradeoffs in terms of scale, speed, and resource usage?
+    ```
 
-!!! prompt "SDK Differences"
-    
-    Explain the difference between azure-ai-evaluation SDK (used in Labs 1-2) and azure-ai-projects SDK (used in Lab 3). Why do I need version 1.1.0b3 or later for cloud red teaming?
+Try coming up with prompts on your own about:
 
-!!! prompt "Portal Features"
-    
-    What features are available in the Azure AI Foundry Portal for viewing red team results? How can I use the portal to share findings with my security team?
-
-!!! prompt "Development Lifecycle"
-    
-    How can cloud-based red teaming help with pre-deployment validation? What's a good workflow for incorporating red team scans into my AI development lifecycle?
-
-!!! prompt "Asynchronous Execution"
-    
-    Why does cloud-based scanning run asynchronously? How do I check scan status and retrieve results programmatically after submission?
+1. SDK differences between azure-ai-evaluation and azure-ai-projects
+1. Portal features for viewing and sharing red team results
+1. Incorporating cloud red teaming into the AI development lifecycle
+1. Asynchronous execution and programmatic result retrieval
