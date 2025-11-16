@@ -52,7 +52,25 @@ The scripts below make this transparent to you with just 3 steps required to pro
 
 ## Setup Infrastructure
 
+### 0. Authenticate with Azure CLI
+
+Type this command in the VS Code terminal - then complete the steps in the prompt shown to you and log in to the relevant Azure account.
+- For in-venue participants - this will be the credentials in Skillable
+- For self-guided learners - this will be your own Azure subscription
+
+```bash
+az login
+```
+
 ### 1. Initial Setup & Provisioning
+
+Next, switch to the infra directory:
+
+```bash
+cd infra/
+```
+
+Then run this script _if you are a self-guided learner_. For in-venue participatnts, this is already done for you. 
 
 ```bash
 ./1-setup.sh
@@ -64,9 +82,11 @@ The scripts below make this transparent to you with just 3 steps required to pro
 - Configures AI model settings (with confirmation prompts)
 - Provisions Azure infrastructure (does NOT deploy the application)
 
-**Note:** After this completes, you'll need to manually run `azd up` if you want to deploy the application.
+**Note:** After this completes, you'll need to manually run `azd up` if you want to also deploy the application.
 
 ### 2. Environment Configuration
+
+_This step can be run by both in-venue and self-guided participants_. It uses the Azure CLI to retrieve and configure your local environment variables from the provisioned resource group. It will try to find a default with "rg-Ignite" (for Skillable) but you can override this (for self-guided) with the RG you created earlier.
 
 ```bash
 ./2-setup-env.sh
