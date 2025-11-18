@@ -32,7 +32,7 @@ Ready? Read on!
 
 ## Template Overview
 
-The lab explores Red Teaming Agent usage in the context of an AI Agent application (with underlying tools and models) running in Azure AI Foundry. To provide a sandbox environment that can _evolve with the learner_, we will use the [Get Started with AI Agents](https://github.com/Azure-Samples/get-started-with-ai-agents) template with the architecture shown below.
+The lab explores Red Teaming Agent usage in the context of an AI Agent application (with underlying tools and models) running in Microsoft Foundry. To provide a sandbox environment that can _evolve with the learner_, we will use the [Get Started with AI Agents](https://github.com/Azure-Samples/get-started-with-ai-agents) template with the architecture shown below.
 
 The template provisions a single AI Agent with a backing Large Language Model - and a front-end UI (web app) hosted in a Contaner Apps environment. While the template has support for Azure AI Search activation, this is _optional_. The template also allows you to activate features like tracing and application insights by configuring the _azd_ environment before deploying infrastructure with `azd up`.
 

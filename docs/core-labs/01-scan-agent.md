@@ -6,7 +6,7 @@ Learn how to run automated security testing on Azure AI agents using the AI Red 
 
 ## Learning Objectives
 
-- ✅ Connect to Azure AI Foundry and retrieve an existing agent
+- ✅ Connect to Microsoft Foundry and retrieve an existing agent
 - ✅ Configure and run automated red team scans with attack strategies
 - ✅ Analyze scan results and interpret Attack Success Rate (ASR) metrics
 
@@ -23,11 +23,11 @@ Learn how to run automated security testing on Azure AI agents using the AI Red 
 ## What You'll Do
 
 1. Authenticate with Azure using DefaultAzureCredential
-2. Retrieve your deployed agent from Azure AI Foundry
+2. Retrieve your deployed agent from Microsoft Foundry
 3. Create an agent callback function for red team testing
 4. Configure the RedTeam instance with risk categories
 5. Execute the scan using the Flip attack strategy (3-5 minutes)
-6. Review results in local `scan-results/` folder and Azure AI Foundry Portal
+6. Review results in local `scan-results/` folder and Microsoft Foundry Portal
 
 ---
 
@@ -36,7 +36,7 @@ Learn how to run automated security testing on Azure AI agents using the AI Red 
 - AI Red Teaming Agent automates adversarial testing across risk categories.
 - Attack Success Rate (ASR) quantifies unsafe response frequency.
 - Agent callbacks provide a standard interface for testing interactions.
-- Scan results are saved locally and logged to Azure AI Foundry Portal.
+- Scan results are saved locally and logged to Microsoft Foundry Portal.
 - Start simple and progressively increase test complexity for coverage.
 
 ---

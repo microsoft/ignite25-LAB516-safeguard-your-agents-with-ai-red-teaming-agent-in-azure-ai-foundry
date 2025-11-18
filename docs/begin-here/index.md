@@ -28,7 +28,7 @@ _The workshop guide is setup for use both in-venue (for instructor-led sessions)
 
 ## 2. Workshop Objectives
 
-This workshop teaches you how to use the AI Red Teaming Agent in Azure AI Foundry to proactively scan your AI agents and applications for vulnerabilities _before deploying to production_. These scans _simulate adversarial attacks_ across multiple risk categories and attack strategies and generate reports that you can analyze to understand and mitigate these risks.
+This workshop teaches you how to use the AI Red Teaming Agent in Microsoft Foundry to proactively scan your AI agents and applications for vulnerabilities _before deploying to production_. These scans _simulate adversarial attacks_ across multiple risk categories and attack strategies and generate reports that you can analyze to understand and mitigate these risks.
 
 !!! quote ""
 
@@ -59,12 +59,12 @@ To complete the lab, you will need:
 ## 4. Azure Infrastructure
 
 !!! quote ""
-    This lab uses a customized version of the [Getting Started With AI Agents](https://github.com/Azure-Samples/get-started-with-ai-agents) template for Azure AI Foundry. 
+    This lab uses a customized version of the [Getting Started With AI Agents](https://github.com/Azure-Samples/get-started-with-ai-agents) template for Microsoft Foundry. 
 
     - It is pre-provisioned for instructor-led sessions. Participants are all set.
     - We provide scripts for self-guided learners to do this manually. It takes ~15-20 mins.
     
-This sets up a basic Azure AI Foundry project with a model deployment and sample AI agent as shown in the architecture diagram below. The template has built-in support for tracing, monitoring, evaluations and red-teaming features - making it a good sandbox for this lab.
+This sets up a basic Microsoft Foundry project with a model deployment and sample AI agent as shown in the architecture diagram below. The template has built-in support for tracing, monitoring, evaluations and red-teaming features - making it a good sandbox for this lab.
 
  ![Architecture](./../assets/architecture.png)
 

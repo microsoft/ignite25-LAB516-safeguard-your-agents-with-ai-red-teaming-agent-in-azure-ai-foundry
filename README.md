@@ -4,10 +4,10 @@
 
 # [Microsoft Ignite 2025](https://ignite.microsoft.com)
 
-## 🔥LAB516: Safeguard your agents with AI Red Teaming Agent in Azure AI Foundry
+## 🔥LAB516: Safeguard your agents with AI Red Teaming Agent in Microsoft Foundry
 
-[![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/AIFoundryDiscord-Ignite25)
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=adff2f&logoColor=fff)](https://aka.ms/AIFoundryForum-Ignite25)
+[![Microsoft Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/AIFoundryDiscord-Ignite25)
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=adff2f&logoColor=fff)](https://aka.ms/AIFoundryForum-Ignite25)
 
 ### Who Should Take This Lab?
 
@@ -21,7 +21,7 @@ This lab is ideal for:
 
 
 ### Session Description
-This hands-on workshop will introduce participants to the fundamentals of [automated AI red teaming](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-red-teaming-agent) of generative AI systems for safety and security risks using Azure AI Foundry. Attendees will learn how to apply automated attack techniques to identify safety issues and security vulnerabilities across multiple risk dimensions before deployment. Participants will engage in hands-on walkthroughs and guided exercises to apply these concepts in realistic development scenarios.
+This hands-on workshop will introduce participants to the fundamentals of [automated AI red teaming](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-red-teaming-agent) of generative AI systems for safety and security risks using Microsoft Foundry. Attendees will learn how to apply automated attack techniques to identify safety issues and security vulnerabilities across multiple risk dimensions before deployment. Participants will engage in hands-on walkthroughs and guided exercises to apply these concepts in realistic development scenarios.
 
 ### 🧠 Learning Outcomes
 
@@ -31,14 +31,14 @@ By the end of this session, learners will be able to:
 - identify and test against core risk categories with diverse attack strategies 
 - configure and test different target types (callbacks, models & app endpoints)
 - run AI Red Teaming Agent scans locally and in the cloud (using Azure AI SDKs)
-- analyze scan results & metrics locally and in the cloud (using Azure AI Foundry Portal)
+- analyze scan results & metrics locally and in the cloud (using Microsoft Foundry Portal)
 - compare baseline and advanced attack strategies for a real-world scenario
 
 ### 💻 Technologies Used
 
 1. [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) - for provisioning a basic AI Agent app
-1. [Azure AI Foundry Portal](https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry) - for project management and viewing scan results
-1. [Azure AI Foundry SDK](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme) - for cloud-based red teaming operations
+1. [Microsoft Foundry Portal](https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry) - for project management and viewing scan results
+1. [Microsoft Foundry SDK](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme) - for cloud-based red teaming operations
 1. [Azure AI Red Teaming Agent](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-red-teaming-agent) - for adversarial testing of your AI app
 1. [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk) - for local setup & execution of scans
 1. [Azure AI Agents](https://learn.microsoft.com/azure/ai-foundry/agents/overview) - for creating intelligent agents with tools and custom functions
@@ -99,7 +99,7 @@ For more information, setup instructions for other dev clients, and to post comm
 | Resources          | Links                             | Description        |
 |:-------------------|:----------------------------------|:-------------------|
 | Ignite 2025 Next Steps | [https://aka.ms/Ignite25-Next-Steps](https://aka.ms/Ignite25-Next-Steps?ocid=ignite25_nextsteps_cnl) | Links to all repos for Microsoft Ignite Sessions|
-| Azure AI Foundry Community Discord | [![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/AIFoundryDiscord-Ignite25)| Connect with the Azure AI Foundry Community! |
+| Microsoft Foundry Community Discord | [![Microsoft Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/AIFoundryDiscord-Ignite25)| Connect with the Microsoft Foundry Community! |
 | Learn at Ignite | [https://aka.ms/LearnAtIgnite](https://aka.ms/LearnAtIgnite?ocid=ignite25_nextsteps_github_cnl) | Continue learning on Microsoft Learn |
 
 ## Content Owners
