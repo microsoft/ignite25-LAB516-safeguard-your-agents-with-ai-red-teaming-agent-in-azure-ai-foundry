@@ -39,33 +39,37 @@ SELECTED_SUB_NAME=$(az account show --query "name" -o tsv)
 echo "✓ Using subscription: $SELECTED_SUB_NAME"
 echo ""
 
-# Step 4: Find matching resource groups
+# Step 4: Find rg-Ignite* resource groups
 echo "Searching for resource groups..."
 ALL_RGS=($(az group list --query "[].name" -o tsv))
 
-# Find all matching resource groups with priority
-PRIORITY_1_RGS=()  # rg-Ignite*
-PRIORITY_2_RGS=()  # rg-*Ignite* or rg-*516*
-
+# Find resource groups starting with "rg-Ignite" (case-insensitive)
+IGNITE_RGS=()
 for rg in "${ALL_RGS[@]}"; do
-    # Priority 1: Starts with "rg-Ignite" or "rg-ignite" (case-insensitive)
     if [[ "${rg,,}" == rg-ignite* ]]; then
-        PRIORITY_1_RGS+=("$rg")
-    # Priority 2: Contains "Ignite" or "516" anywhere after "rg-"
-    elif [[ "${rg,,}" == rg-*ignite* ]] || [[ "$rg" == *516* ]]; then
-        PRIORITY_2_RGS+=("$rg")
+        IGNITE_RGS+=("$rg")
     fi
 done
 
-# Combine arrays with priority 1 first
-MATCHED_RGS=("${PRIORITY_1_RGS[@]}" "${PRIORITY_2_RGS[@]}")
-
-# Step 5: Display matching resource groups and let user pick
-if [ ${#MATCHED_RGS[@]} -gt 0 ]; then
+# Step 5: Handle based on number of matches
+if [ ${#IGNITE_RGS[@]} -eq 0 ]; then
+    # No rg-Ignite* found - ask user for resource group name
+    echo "No 'rg-Ignite*' resource groups found."
     echo ""
-    echo "Found matching resource groups:"
-    for i in "${!MATCHED_RGS[@]}"; do
-        printf "%2d) %s\n" $((i+1)) "${MATCHED_RGS[$i]}"
+    echo "Available Resource Groups:"
+    az group list --query "[].name" -o tsv | nl
+    echo ""
+    read -p "Enter resource group name: " SELECTED_RG
+elif [ ${#IGNITE_RGS[@]} -eq 1 ]; then
+    # Exactly one match - use it as default
+    SELECTED_RG="${IGNITE_RGS[0]}"
+    echo "✓ Found resource group: $SELECTED_RG"
+else
+    # Multiple matches - list and ask user to pick
+    echo ""
+    echo "Found multiple 'rg-Ignite*' resource groups:"
+    for i in "${!IGNITE_RGS[@]}"; do
+        printf "%2d) %s\n" $((i+1)) "${IGNITE_RGS[$i]}"
     done
     echo ""
     read -p "Select resource group number (or press Enter and type a different name): " RG_CHOICE
@@ -73,21 +77,14 @@ if [ ${#MATCHED_RGS[@]} -gt 0 ]; then
     if [ -z "$RG_CHOICE" ]; then
         # User pressed Enter without selecting
         read -p "Enter resource group name: " SELECTED_RG
-    elif [[ "$RG_CHOICE" =~ ^[0-9]+$ ]] && [ "$RG_CHOICE" -ge 1 ] && [ "$RG_CHOICE" -le ${#MATCHED_RGS[@]} ]; then
+    elif [[ "$RG_CHOICE" =~ ^[0-9]+$ ]] && [ "$RG_CHOICE" -ge 1 ] && [ "$RG_CHOICE" -le ${#IGNITE_RGS[@]} ]]; then
         # Valid number selected
-        SELECTED_RG="${MATCHED_RGS[$((RG_CHOICE-1))]}"
+        SELECTED_RG="${IGNITE_RGS[$((RG_CHOICE-1))]}"
         echo "✓ Selected: $SELECTED_RG"
     else
         # Invalid number, treat as a resource group name
         SELECTED_RG="$RG_CHOICE"
     fi
-else
-    echo "No matching resource groups found."
-    echo ""
-    echo "Available Resource Groups:"
-    az group list --query "[].name" -o tsv | nl
-    echo ""
-    read -p "Enter resource group name: " SELECTED_RG
 fi
 
 # Verify the resource group exists
@@ -108,8 +105,8 @@ LOCATION=$(az group show --name "$SELECTED_RG" --query location -o tsv)
 echo "✓ Location: $LOCATION"
 echo ""
 
-# Step 6: Find Azure AI Foundry Resource (AI Service)
-echo "Searching for Azure AI Foundry Resource..."
+# Step 6: Find Microsoft Foundry Resource (AI Service)
+echo "Searching for Microsoft Foundry Resource..."
 AI_RESOURCES=($(az cognitiveservices account list \
     --resource-group "$SELECTED_RG" \
     --query "[?kind=='AIServices'].name" \
@@ -133,12 +130,12 @@ else
 fi
 echo ""
 
-# Step 7: Find Azure AI Foundry Project (child of AI Service)
+# Step 7: Find Microsoft Foundry Project (child of AI Service)
 if [ -z "$SELECTED_RESOURCE" ]; then
     echo "Skipping project search - no AI Foundry Resource selected"
     SELECTED_PROJECT=""
 else
-    echo "Searching for Azure AI Foundry Projects under $SELECTED_RESOURCE..."
+    echo "Searching for Microsoft Foundry Projects under $SELECTED_RESOURCE..."
     
     # List AI projects as child resources using the correct resource type
     AI_PROJECTS=($(az resource list \
@@ -244,7 +241,7 @@ echo "Updating .env file..."
 
 # Set defaults for empty values
 SELECTED_DEPLOYMENT="${SELECTED_DEPLOYMENT:-}"
-SELECTED_AGENT="RedTeaming-Cora"
+SELECTED_AGENT="agent-template-assistant"
 
 # Get Azure OpenAI endpoint and key for Lab 2
 if [ -n "$SELECTED_RESOURCE" ]; then

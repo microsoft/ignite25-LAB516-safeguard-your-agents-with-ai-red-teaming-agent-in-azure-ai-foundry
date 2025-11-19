@@ -34,7 +34,7 @@ Test Cora, an AI shopping assistant for Zava Hardware Store, using baseline and 
 4. Run advanced scan with encoding/obfuscation strategies
 5. Analyze and compare baseline vs. advanced ASR metrics
 6. Review successful attacks and identify vulnerabilities
-7. Access detailed reports in Azure AI Foundry Portal
+7. Access detailed reports in Microsoft Foundry Portal
 
 ## What You'll Learn
 

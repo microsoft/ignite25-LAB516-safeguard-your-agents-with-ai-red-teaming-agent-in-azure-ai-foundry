@@ -73,6 +73,6 @@ Look for "Ask Copilot" prompt admonitions like this throughout the course.
 - [AI Red Teaming Agent Documentation](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-red-teaming-agent)
 - [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk)
 - [Responsible AI Principles](https://www.microsoft.com/ai/responsible-ai)
-- [Azure AI Foundry Portal](https://ai.azure.com)
+- [Microsoft Foundry Portal](https://ai.azure.com)
 
 ---

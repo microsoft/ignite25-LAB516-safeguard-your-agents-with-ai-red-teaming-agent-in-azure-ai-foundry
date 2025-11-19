@@ -2,12 +2,12 @@
 
 ## About This Lab
 
-Scale your security testing by running red team scans in Azure AI Foundry cloud infrastructure. This lab demonstrates how to submit asynchronous cloud-based scans, monitor their progress in the Azure portal, and access comprehensive results with enhanced visualization and reporting capabilities.
+Scale your security testing by running red team scans in Microsoft Foundry cloud infrastructure. This lab demonstrates how to submit asynchronous cloud-based scans, monitor their progress in the Azure portal, and access comprehensive results with enhanced visualization and reporting capabilities.
 
 ## Learning Objectives
 
-- ✅ Configure and submit red team scans to run in Azure AI Foundry cloud infrastructure
-- ✅ Monitor scan progress and status through the Azure AI Foundry Portal
+- ✅ Configure and submit red team scans to run in Microsoft Foundry cloud infrastructure
+- ✅ Monitor scan progress and status through the Microsoft Foundry Portal
 - ✅ Access and analyze comprehensive cloud-based scan results and reports
 
 ## Instructions
@@ -25,8 +25,8 @@ Scale your security testing by running red team scans in Azure AI Foundry cloud 
 1. Verify you have `azure-ai-projects==1.1.0b3` or later installed
 2. Import the cloud-based RedTeam class from `azure.ai.projects`
 3. Configure the RedTeam instance with your Azure AI project endpoint
-4. Submit the scan to Azure AI Foundry (runs asynchronously in the cloud)
-5. Navigate to Azure AI Foundry Portal → **Evaluation** → **AI red teaming** tab
+4. Submit the scan to Microsoft Foundry (runs asynchronously in the cloud)
+5. Navigate to Microsoft Foundry Portal → **Evaluation** → **AI red teaming** tab
 6. Monitor scan progress and view results when complete (typically 5-10 minutes)
 7. Explore comprehensive reports, visualizations, and data views in the portal
 

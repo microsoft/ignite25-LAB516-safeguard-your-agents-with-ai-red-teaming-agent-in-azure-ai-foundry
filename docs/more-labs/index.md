@@ -8,8 +8,8 @@ These "bonus" labs build upon the foundational knowledge from Labs 0-3 and will 
 
     - [X] Completed Labs 0-3 (core labs)
     - [X] Understanding of basic red teaming concepts
-    - [X] Familiarity with Azure AI Foundry SDK
-    - [X] Active Azure AI Foundry project
+    - [X] Familiarity with Microsoft Foundry SDK
+    - [X] Active Microsoft Foundry project
 
 ---
 
