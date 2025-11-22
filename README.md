@@ -4,10 +4,15 @@
 
 # [Microsoft Ignite 2025](https://ignite.microsoft.com)
 
-## 🔥LAB516: Safeguard your agents with AI Red Teaming Agent in Microsoft Foundry
+## 🔥 LAB516: Safeguard your agents with AI Red Teaming Agent in Microsoft Foundry
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://aka.ms/MicrosoftFoundry-Ignite25)
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=adff2f&logoColor=fff)](https://aka.ms/MicrosoftFoundryForum-Ignite25)
+
+
+> [!IMPORTANT]  
+> Check out the [msignite2025-v1.0 release](https://github.com/microsoft/ignite25-LAB516-safeguard-your-agents-with-ai-red-teaming-agent-in-microsoft-foundry/releases/tag/msignite2025-v1.0) tag to see the exact version of this lab that was delivered at [Microsoft Ignite 2025](https://ignite.microsoft.com/en-US/sessions/LAB516). The _main_ line may be getting a refresh soon to reflect the latest changes and feature updates from Microsoft Ignite.
+
 
 ### Who Should Take This Lab?
 
